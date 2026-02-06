@@ -1,7 +1,10 @@
 import { onMount } from 'solid-js';
 
-// import components
+// import utility components
 import Grid from '../../components/utility/Grid/Grid';
+
+// import page components
+import Sidebar from '../../components/page/sidebar/Sidebar';
 
 // import style
 import styles from './Homepage.module.scss';
@@ -30,12 +33,7 @@ function App() {
 
       {/* PAGE CONTENT */}
       <div ref={root} class={`${styles.Container}`}>
-        <h1 class={`${styles.Title}`}>
-          Hello { state.username } from { state.location }!
-        </h1>
-        <p class={`${styles.Paragraph}`}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet deleniti perferendis animi deserunt magnam cupiditate nisi ab! Aperiam commodi autem nesciunt odio reiciendis enim impedit pariatur. Enim obcaecati beatae accusamus eum. Nihil excepturi facere accusantium assumenda sapiente minima beatae eius laborum natus dicta? Nulla fuga facere aliquam magni tempora. Ipsum nobis neque vitae repellat, laborum inventore deserunt tempore incidunt omnis? Libero incidunt rem perferendis et deleniti nam exercitationem iusto inventore animi ipsam mollitia expedita, officiis debitis laudantium sunt blanditiis quia?
-        </p>
+        <Sidebar />
       </div>
     </>
   );

@@ -1,8 +1,6 @@
-/******
-Variables
-*******/
-
-// Colors //
+/***************************************
+****  Colors ***************************
+***************************************/
 
 /* Primary - Vulcan Crimson */
 $primary50:  oklch(0.96 0.02 26.9);
@@ -57,7 +55,61 @@ $error: oklch(0.45 0.22 26.9);
 $alert: oklch(0.8365 0.1719 83.0703);
 $success: oklch(0.7484 0.1996 151.3);
 
-// Animations Easings
+/***************************************
+****  Fonts ****************************
+***************************************/
+
+/* Base font size */
+$font-size-base: 1rem; // 16px
+
+/* Typo Scale (Ratio 1.25) */
+$font-size-xs:     0.64rem;   // ~10.2px
+$font-size-sm:     0.8rem;    // ~12.8px
+$font-size-body:   1rem;      // 16px (Base)
+$font-size-medium: 1.25rem;   // 20px
+$font-size-lg:     1.563rem;  // ~25px
+$font-size-xl:     1.953rem;  // ~31.2px
+$font-size-xxl:    2.441rem;  // ~39px
+
+/* Font Weights */
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+/* Line Heights */
+$line-height-none: 1;
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+
+/***************************************
+**** Spacings **************************
+***************************************/
+
+$spc-unit: 0.5rem; // 8px (Base)
+
+$spc-0:     0;
+$spc-xs:    calc($spc-unit * 0.5); // 4px
+$spc-sm:    $spc-unit;             // 8px
+$spc-md:    calc($spc-unit * 2);   // 16px
+$spc-lg:    calc($spc-unit * 3);   // 24px
+$spc-xl:    calc($spc-unit * 4);   // 32px
+$spc-2xl:   calc($spc-unit * 5);   // 40px
+$spc-3xl:   calc($spc-unit * 6);   // 48px
+$spc-4xl:   calc($spc-unit * 8);   // 64px
+$spc-5xl:   calc($spc-unit * 10);  // 80px
+$spc-6xl:   calc($spc-unit * 12);  // 96px
+$spc-7xl:   calc($spc-unit * 16);  // 128px
+$spc-8xl:   calc($spc-unit * 20);  // 160px
+$spc-9xl:   calc($spc-unit * 24);  // 192px
+$spc-10xl:  calc($spc-unit * 32);  // 256px
+
+/***************************************
+**** Animation *************************
+***************************************/
+
 $bezier-productiveEaseInOut: cubic-bezier(0.2, 0.2, 0.38, 0.9);
 $bezier-productiveEaseIn: cubic-bezier(0.2, 0, 1, 0.9);
 $bezier-productiveEaseOut: cubic-bezier(0, 0, 0.38, 0.9);
@@ -67,3 +119,4 @@ $bezier-expressiveEaseOut: cubic-bezier(0, 0, 0.3, 1);
 $bezier-celebratoryEaseInOut: cubic-bezier(0.29, 0.04, 0.23, 1);
 $bezier-celebratoryEaseIn: cubic-bezier(0.39, .06, 1, 1);
 $bezier-celebratoryEaseOut: cubic-bezier(0, 0, 0.3, 1);
+
