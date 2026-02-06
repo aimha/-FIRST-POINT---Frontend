@@ -3,7 +3,9 @@ Variables
 *******/
 
 // Colors
-$color-myRed: oklch(62.94% 0.2535 22.24);
+$primary500: oklch(0.6055 0.2464 26.9);
+$secondary500: oklch(0.3943 0.2501 269.67);
+$neutral50: oklch(1 0 0);
 
 // Animations Easings
 $bezier-productiveEaseInOut: cubic-bezier(0.2, 0.2, 0.38, 0.9);
