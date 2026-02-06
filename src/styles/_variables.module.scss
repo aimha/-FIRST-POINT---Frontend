@@ -2,10 +2,60 @@
 Variables
 *******/
 
-// Colors
-$primary500: oklch(0.6055 0.2464 26.9);
-$secondary500: oklch(0.3943 0.2501 269.67);
-$neutral50: oklch(1 0 0);
+// Colors //
+
+/* Primary - Vulcan Crimson */
+$primary50:  oklch(0.96 0.02 26.9);
+$primary100: oklch(0.92 0.05 26.9);
+$primary200: oklch(0.85 0.10 26.9);
+$primary300: oklch(0.78 0.14 26.9);
+$primary400: oklch(0.70 0.19 26.9);
+$primary500: oklch(0.6055 0.2464 26.9); // Base
+$primary600: oklch(0.53 0.22 26.9);
+$primary700: oklch(0.45 0.19 26.9);
+$primary800: oklch(0.36 0.15 26.9);
+$primary900: oklch(0.28 0.12 26.9);
+
+/* Secondary - Midnight Cobalt */
+$secondary50:  oklch(0.94 0.02 269.67);
+$secondary100: oklch(0.88 0.06 269.67);
+$secondary200: oklch(0.77 0.11 269.67);
+$secondary300: oklch(0.65 0.15 269.67);
+$secondary400: oklch(0.52 0.20 269.67);
+$secondary500: oklch(0.3943 0.2501 269.67); // Base
+$secondary600: oklch(0.35 0.22 269.67);
+$secondary700: oklch(0.30 0.18 269.67);
+$secondary800: oklch(0.24 0.14 269.67);
+$secondary900: oklch(0.18 0.11 269.67);
+
+/* Accent - Sky Spark */
+$accent50:  oklch(0.97 0.02 222.78);
+$accent100: oklch(0.94 0.04 222.78);
+$accent200: oklch(0.89 0.07 222.78);
+$accent300: oklch(0.84 0.10 222.78);
+$accent400: oklch(0.78 0.13 222.78);
+$accent500: oklch(0.7086 0.1711 222.78); // Base
+$accent600: oklch(0.61 0.15 222.78);
+$accent700: oklch(0.52 0.13 222.78);
+$accent800: oklch(0.42 0.10 222.78);
+$accent900: oklch(0.32 0.08 222.78);
+
+/* Neutral - Surface and Typography */
+$neutral50:  oklch(1 0 0); // Pure White
+$neutral100: oklch(0.94 0.002 137.36);
+$neutral200: oklch(0.88 0.003 137.36);
+$neutral300: oklch(0.80 0.004 137.36);
+$neutral400: oklch(0.70 0.005 137.36);
+$neutral500: oklch(0.60 0.006 137.36);
+$neutral600: oklch(0.50 0.007 137.36);
+$neutral700: oklch(0.40 0.008 137.36);
+$neutral800: oklch(0.28 0.009 137.36);
+$neutral900: oklch(0.1492 0.01 137.36); // Base Scura
+
+/* Utility */
+$error: oklch(0.45 0.22 26.9);
+$alert: oklch(0.8365 0.1719 83.0703);
+$success: oklch(0.7484 0.1996 151.3);
 
 // Animations Easings
 $bezier-productiveEaseInOut: cubic-bezier(0.2, 0.2, 0.38, 0.9);
