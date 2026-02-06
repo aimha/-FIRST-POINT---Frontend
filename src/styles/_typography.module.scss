@@ -1,0 +1,11 @@
+// interlinea
+
+$line: 1rem;
+
+// baseline grid mixin
+
+@mixin baseline($line-height, $lines-bottom) {
+  line-height: $line * $line-height;
+  padding-top: calc(calc($line * $line-height - 1cap) / 2);
+  margin-bottom: calc($line * $lines-bottom - calc(calc($line * $line-height - 1cap) / 2));
+}

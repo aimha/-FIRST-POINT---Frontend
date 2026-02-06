@@ -1,0 +1,32 @@
+DIR_NAME := $(shell read -p "Enter directory name: " name; echo $$name)
+
+.PHONY: all clean
+
+all: create_dir create_files
+
+create_dir:
+	@mkdir -p src/components/$(DIR_NAME)
+
+create_files: create_dir
+	@touch DIR_NAME := $(shell read -p "Enter directory name: " name; echo $$name)
+
+.PHONY: all clean
+
+all: create_dir create_files
+
+create_dir:
+	@mkdir -p $(DIR_NAME)
+
+create_files: create_dir
+	@touch $(DIR_NAME)/file1.txt
+	@touch $(DIR_NAME)/file2.txt
+	@touch $(DIR_NAME)/file3.txt
+
+clean:
+	rm -rf $(DIR_NAME)$(DIR_NAME)/file1.txt
+	@touch $(DIR_NAME)/file2.txt
+	@touch $(DIR_NAME)/file3.txt
+
+clean:
+	rm -rf $(DIR_NAME)
+

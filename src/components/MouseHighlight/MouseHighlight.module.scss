@@ -1,0 +1,20 @@
+.MouseContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 900;
+
+  .MouseHighlight {
+    transition: all .5s cubic-bezier(.0,.25,.33,1);
+    background-color: #ffffff;
+    opacity: .1;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    background-blend-mode: difference;
+  }
+}

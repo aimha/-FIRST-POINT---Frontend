@@ -1,0 +1,55 @@
+// COMPONENT STYLES
+
+
+// IMPORTS
+@use '../../styles/typography.module' as ty;
+
+.SliderContainer {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  margin-top: 2rem;
+
+  .Slider {
+    display: flex;
+
+    .Card {
+      width: 10rem;
+      margin-right: 1rem;
+      text-align: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      overflow: hidden;
+  
+      img {
+        object-fit: cover;
+        height: 16rem;
+        min-width: 100%;
+        user-select: none;
+      }
+    }
+  }
+}
+
+.SideNavContainer {
+  display: flex;
+  justify-content: justify-end;
+  margin: 1rem 0;
+
+  .SideNavPrev,
+  .SideNavNext,
+  .SideNavStart,
+  .SideNavEnd {
+    position: relative;
+    width: 6rem;
+    cursor: pointer;
+    user-select: none;
+
+    @include ty.baseline(1, 0);
+    font-family: "Montserrat", sans-serif;
+    font-size: .6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

@@ -1,0 +1,30 @@
+/* GENERAL STYLING *//* PRESTILING */
+
+*, ::after, ::before, ::backdrop, ::file-selector-button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  border: 0 solid;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  scroll-behavior: smooth;
+}

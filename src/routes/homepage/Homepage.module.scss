@@ -1,0 +1,36 @@
+// IMPORTS
+
+@use'../../styles/typography.module' as typography;
+@use'../../styles/variables.module' as var;
+
+// STYLES
+
+.Container {
+  padding: 2rem 4rem;
+  overflow-x: clip;
+}
+
+.Title {
+  @include typography.baseline(2, 1);
+
+  font-size: 2rem;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+
+  color: var.$color-myRed;
+}
+
+.Paragraph {
+  @include typography.baseline(1, 1);
+
+  font-size: .6rem;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}

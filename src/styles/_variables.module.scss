@@ -1,0 +1,13 @@
+// variables
+
+$color-myRed: oklch(62.94% 0.2535 22.24);
+
+$bezier-productiveEaseInOut: cubic-bezier(0.2, 0.2, 0.38, 0.9);
+$bezier-productiveEaseIn: cubic-bezier(0.2, 0, 1, 0.9);
+$bezier-productiveEaseOut: cubic-bezier(0, 0, 0.38, 0.9);
+$bezier-expressiveEaseInOut: cubic-bezier(0.4, 0.14, 0.3, 1);
+$bezier-expressiveEaseIn: cubic-bezier(0.4, 0.14, 1, 1);
+$bezier-expressiveEaseOut: cubic-bezier(0, 0, 0.3, 1);
+$bezier-celebratoryEaseInOut: cubic-bezier(0.29, 0.04, 0.23, 1);
+$bezier-celebratoryEaseIn: cubic-bezier(0.39, .06, 1, 1);
+$bezier-celebratoryEaseOut: cubic-bezier(0, 0, 0.3, 1);
