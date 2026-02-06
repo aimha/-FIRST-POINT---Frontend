@@ -1,34 +1,22 @@
-## Usage
+## Uso 
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
-
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+Clonare il repo e installare le dipendenze con:
 
 ```bash
-$ npm install # or pnpm install or yarn install
+$ npm install
 ```
+## Scripts disponibili
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+Nella root del progetto si può avviare il server di sviluppo con `npm run dev` or `npm start`.<br><br>
 
-## Available Scripts
+Il server di sviluppo è disponibile su questa porta [http://localhost:3000](http://localhost:3000).<br><br>
 
-In the project directory, you can run:
+La pagina si aggiorna automaticamente quando vengono eseguite delle modifiche alla base di codice.<br><br>
 
-### `npm run dev` or `npm start`
+Per degli script di servizio, creare **routes** o **components** si possono usare gli script contenuti le Makefile nella root directory.<br><br>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+La build del progetto può essere eseguita con `npm run build`, i file creati si trovano nel folder `dist`.<br><br>
 
 ## Deployment
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+I file contenuti nella cartella `dist` possono essere messi in produzione su qualsiasi provider di file statici.
