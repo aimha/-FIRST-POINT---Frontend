@@ -4,8 +4,8 @@ import { createStore } from "solid-js/store"
 
 function createStateManagement() {
   const [state, setState] = createStore({
-    username: "Username",
-    location: "Location"
+    username: "First Point",
+    location: "Fidenza"
   });
 
   return { state };

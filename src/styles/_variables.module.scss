@@ -1,7 +1,11 @@
-// variables
+/******
+Variables
+*******/
 
+// Colors
 $color-myRed: oklch(62.94% 0.2535 22.24);
 
+// Animations Easings
 $bezier-productiveEaseInOut: cubic-bezier(0.2, 0.2, 0.38, 0.9);
 $bezier-productiveEaseIn: cubic-bezier(0.2, 0, 1, 0.9);
 $bezier-productiveEaseOut: cubic-bezier(0, 0, 0.38, 0.9);
