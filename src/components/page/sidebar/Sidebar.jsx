@@ -16,16 +16,20 @@ function Sidebar() {
 
   return (
     <>
-      <aside class={`${styles.Sidebar}`}>
-        <div class={`${styles.Sidebar__header}`}>
-          <img src="/logo.svg" alt="First Point" class={`${styles.Sidebar__logo}`} />
+      <aside class={styles.Sidebar}>
+        <div class={styles.Sidebar__header}>
+          <img src="/logo.svg" alt="First Point" class={styles.Sidebar__logo} />
         </div>
 
-        <nav class={`${styles.Sidebar__nav}`}>
+        <nav class={styles.Sidebar__nav}>
           <For each={menuItems}>
             {(item) => (
               <button
-                class={`${styles.Sidebar__item}`}
+                classList={{
+                  [styles.Sidebar__item]: true,
+                  [styles['Sidebar__item--active']]: activeTab() === item
+                }}
+                onClick={() => setActiveTab(item)}
               >
                 {item}
               </button>

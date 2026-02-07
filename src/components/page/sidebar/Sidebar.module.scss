@@ -50,11 +50,12 @@
 
     &:hover {
       color: var.$neutral800;
-      background: var.$neutral100;
+      background: var.$secondary50;
     }
 
     &--active {
-      background-color: var.$neutral500;
+      color: var.$neutral100;
+      background-color: var.$secondary500;
       font-weight: 500;
     }
   }
