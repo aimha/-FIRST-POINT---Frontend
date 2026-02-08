@@ -1,9 +1,8 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
-import { Router, Route } from "@solidjs/router";
 
-// Routes
-import Homepage from "./routes/homepage/Homepage";
+// Imports
+import App from "./App";
 
 // Styles
 import './styles/global.scss';
@@ -16,10 +15,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => 
-  <div class="app-container w-screen h-screen">
-    <Router>
-      <Route path="/" component={Homepage} />
-    </Router>
-  </div>
-  , root);
+render(() => <App /> , root);
