@@ -1,1 +1,18 @@
+// IMPORTS
+
+@use '../../styles/variables.module' as var;
+@use '../../styles/typography.module' as ty;
+
 // COMPONENT STYLES
+
+.Page {
+  .Sidebar {
+    width: var.$spc-9xl;
+    background-color: red;
+  }
+
+  .Main {
+    background-color: blue;
+  }
+}
+

@@ -4,7 +4,7 @@ import { onMount } from 'solid-js';
 import styles from './MainLayout.module.scss'
 
 // import logic
-import MainLayoutClass from './MainLayout.module';
+// import MainLayoutClass from './MainLayout.module';
 
 // import components
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -15,11 +15,13 @@ function MainLayout(props) {
   });
 
   return (
-    <div>
-      <Sidebar />
+    <div class={styles.Page}>
+      <div class={styles.Sidebar}>
+        {/* <Sidebar /> */}
+      </div>
 
-      <main>
-        {props.children}
+      <main class={styles.Main}>
+        {/* {props.children} */}
       </main>
     </div>
   )
