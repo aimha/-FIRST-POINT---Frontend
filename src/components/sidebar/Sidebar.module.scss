@@ -51,18 +51,18 @@
 
     &:hover {
       color: var.$neutral800;
-      background: var.$accent50;
+      background: var.$secondary50;
       transition: all 0.2s var.$bezier-productiveEaseOut;
     }
 
     &--active {
       color: var.$neutral100;
-      background-color: var.$accent500;
+      background-color: var.$secondary500;
       font-weight: 800;
 
       &:hover {
         color: var.$neutral50;
-        background-color: var.$accent600;
+        background-color: var.$secondary600;
       }
     }
   }
