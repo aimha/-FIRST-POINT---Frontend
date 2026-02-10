@@ -5,7 +5,7 @@ export const [contacts, setContacts] = createStore([
   {
     id: 1,
     nome: "Studio Legale Verdi",
-    tag: "Cliente",
+    tag: ["Cliente", "Commercialista"],
     piva: "IT0123456987",
     email: "info@studioverdi.it",
     telefono: "+390267001200",
@@ -14,7 +14,7 @@ export const [contacts, setContacts] = createStore([
   {
     id: 2,
     nome: "Impresa Alfa Srl",
-    tag: "Cliente",
+    tag: ["Cliente"],
     piva: "IT0987654321",
     email: "amministrazione@alfasrl.it",
     telefono: "+390512247700",
@@ -23,7 +23,7 @@ export const [contacts, setContacts] = createStore([
   {
     id: 3,
     nome: "Claudia Esposito",
-    tag: "Cliente",
+    tag: ["Cliente"],
     piva: "—",
     email: "claudia.esposito@email.it",
     telefono: "+390818778990",

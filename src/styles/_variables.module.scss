@@ -40,6 +40,8 @@ $accent900: oklch(0.32 0.08 222.78);
 
 /* Neutral - Surface and Typography */
 $neutral50:  oklch(1 0 0); // Pure White
+$neutral65:  oklch(97.8% 0.001 250);
+$neutral80:  oklch(97.1% 0.001 250);
 $neutral100: oklch(0.94 0.002 137.36);
 $neutral200: oklch(0.88 0.003 137.36);
 $neutral300: oklch(0.80 0.004 137.36);
@@ -69,7 +71,9 @@ $font-size-body:   1rem;      // 16px (Base)
 $font-size-medium: 1.25rem;   // 20px
 $font-size-lg:     1.563rem;  // ~25px
 $font-size-xl:     1.953rem;  // ~31.2px
-$font-size-xxl:    2.441rem;  // ~39px
+$font-size-2xl:    2.441rem;  // ~39px
+$font-size-3xl:  3.052rem; // ~48.8px
+$font-size-4xl:  3.815rem; // ~61px
 
 /* Font Weights */
 $font-weight-light: 300;

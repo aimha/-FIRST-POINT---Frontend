@@ -15,6 +15,11 @@ function Contatti() {
   let root;
   let hp;
 
+  const handleAddContact = (e) => {
+    e.preventDefault();
+    console.log("Apertura modale nuovo contatto");
+  };
+
   onMount(() => {
     // initialize telefonate logic
     hp = new ContattiClass(root, styles);
@@ -23,8 +28,22 @@ function Contatti() {
 
   return (
     <div ref={root} class={`${styles.Container}`}>
-      <h1>CONTATTI</h1>
+      <div class={styles.Heading}>
+        <h1>Contatti</h1>
+        <button class={styles.Heading__btn} onClick={handleAddContact}>
+          + Nuovo Contatto
+        </button>
+      </div>
       <ul class={styles.Table}>
+        <li class={styles.Table__heading}>
+          <div>ID</div>
+          <div>Nome / Azienda</div>
+          <div>Tag</div>
+          <div>P.IVA</div>
+          <div>E-mail</div>
+          <div>Telefono</div>
+          <div>Pratiche</div>
+        </li>
         <For each={contacts}>
           {(contact) => (
             <li class={styles.Table__row}>
@@ -35,7 +54,11 @@ function Contatti() {
                 {contact.nome}
               </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--tag']}`}>
-                {contact.tag}
+                <For each={contact.tag}>
+                  {(tag) => (
+                    <span>{tag}</span>
+                  )}
+                </For>
               </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--piva']}`}>
                 {contact.piva}
