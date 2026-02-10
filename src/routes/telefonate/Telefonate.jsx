@@ -3,18 +3,18 @@ import { onMount } from 'solid-js';
 // import page components
 
 // import style
-import styles from './Homepage.module.scss';
+import styles from './Telefonate.module.scss';
 
 // import logic
-import HomepageClass from './Homepage.module';
+import TelefonateClass from './Telefonate.module';
 
 function App() {
   let root;
   let hp;
 
   onMount(() => {
-    // initialize homepage logic
-    hp = new HomepageClass(root, styles);
+    // initialize telefonate logic
+    hp = new TelefonateClass(root, styles);
     hp.init();
   })
 

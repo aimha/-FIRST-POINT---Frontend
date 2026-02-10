@@ -4,12 +4,12 @@ import { Router, Route } from "@solidjs/router";
 import MainLayout from "./layouts/MainLayout/MainLayout";
 
 // import routes
-import Homepage from "./routes/homepage/Homepage";
+import Telefonate from "./routes/telefonate/Telefonate";
 
 export default function App() {
   return (
     <Router root={ MainLayout}>
-      <Route path="/" component={ Homepage } />
+      <Route path="/" component={ Telefonate } />
     </Router>
   );
 }
