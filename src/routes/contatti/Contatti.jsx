@@ -3,26 +3,26 @@ import { onMount } from 'solid-js';
 // import page components
 
 // import style
-import styles from './Telefonate.module.scss';
+import styles from './Contatti.module.scss';
 
 // import logic
-import TelefonateClass from './Telefonate.module';
+import ContattiClass from './Contatti.module';
 
-function Telefonate() {
+function Contatti() {
   let root;
   let hp;
 
   onMount(() => {
     // initialize telefonate logic
-    hp = new TelefonateClass(root, styles);
+    hp = new ContattiClass(root, styles);
     hp.init();
   })
 
   return (
     <div ref={root} class={`${styles.Container}`}>
-      <h1>TELEFONATE</h1>
+      <h1>CONTATTI</h1>
     </div>
   );
 }
 
-export default Telefonate;
+export default Contatti;

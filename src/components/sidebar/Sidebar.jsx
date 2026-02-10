@@ -1,4 +1,5 @@
 import { onMount } from 'solid-js';
+import { A } from '@solidjs/router';
 import { createSignal, For } from 'solid-js';
 
 // import style
@@ -9,7 +10,11 @@ import SidebarClass from './Sidebar.module';
 
 function Sidebar() {
   const [activeTab, setActiveTab] = createSignal('Telefonate');
-  const menuItems = ['Dashboard', 'Telefonate', 'Contatti', 'Pratiche'];
+  const menuItems = [
+    { label: 'Telefonate', path: '/' },
+    { label: 'Contatti', path: '/contatti' },
+    { label: 'Pratiche', path: '/pratiche' },
+  ];
 
   onMount(() => {
   });
@@ -23,15 +28,14 @@ function Sidebar() {
       <nav class={styles.Sidebar__nav}>
         <For each={menuItems}>
           {(item) => (
-            <button
-              classList={{
-                [styles.Sidebar__item]: true,
-                [styles['Sidebar__item--active']]: activeTab() === item
-              }}
-              onClick={() => setActiveTab(item)}
+            <A 
+              href={item.path}
+              class={styles.Sidebar__item}
+              activeClass={styles['Sidebar__item--active']}
+              end={item.path === '/'} 
             >
-              {item}
-            </button>
+              {item.label}
+            </A>
           )}
         </For>
       </nav>

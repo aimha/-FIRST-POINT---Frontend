@@ -43,11 +43,16 @@
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+
+    text-decoration: none; 
+    color: inherit;
+
     transition: all 0.2s var.$bezier-productiveEaseOut;
 
     &:hover {
       color: var.$neutral800;
       background: var.$secondary50;
+      transition: all 0.2s var.$bezier-productiveEaseOut;
     }
 
     &--active {
