@@ -7,6 +7,5 @@ export default class ContattiModule {
   }
 
   init() {
-    console.log('contatti ok!');
   }
 }

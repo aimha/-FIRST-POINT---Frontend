@@ -20,12 +20,12 @@
   button {
     display: flex;
     align-items: center;
-    padding: var.$spc-md; 
-    background-color: var.$secondary500; 
+    padding: var.$spc-md;
+    background-color: var.$secondary500;
     color: var.$neutral50;
     font-size: var.$font-size-sm;
     font-weight: 600;
-    
+
     border: none;
     border-radius: var.$spc-sm; // 0.5rem per un look moderno
     cursor: pointer;
@@ -40,21 +40,28 @@
 .Table {
   background-color: var.$neutral50;
   padding: var.$spc-sm;
-  margin: 0 var.$spc-md;
+  margin: 0 var.$spc-md var.$spc-4xl;
   border-radius: var.$spc-sm;
-  
-  &__heading,  
+
+  &__heading,
   &__row {
     display: grid;
-    grid-template-columns: var.$spc-4xl 1.5fr 1fr 1fr 1fr 1fr .5fr;
+    grid-template-columns: var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl;
     align-items: center;
   }
 
   &__row {
     padding: var.$spc-xl var.$spc-md;
     border-radius: var.$spc-sm;
+    border: 1px solid transparent;
+    cursor: pointer;
+
     &:nth-child(odd) {
       background-color: var.$neutral65;
+    }
+
+    &:hover {
+      border: 1px solid var.$secondary500;
     }
   }
 
@@ -81,7 +88,7 @@
     }
 
     &--id,
-    &--piva{
+    &--piva {
       color: var.$neutral500;
     }
 
@@ -104,5 +111,85 @@
         border-radius: var.$spc-4xl;
       }
     }
+
+    &--phone {
+      span {
+        margin-right: var.$spc-sm;
+      }
+    }
   }
+}
+
+.ModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.ModalContent {
+  position: relative;
+  background-color: var.$neutral50;
+  padding: var.$spc-xl;
+  border-radius: var.$spc-sm;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  animation: modalAppear 0.3s var.$bezier-productiveEaseOut;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: var.$spc-md;
+
+  .FormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var.$spc-xs;
+
+    label {
+      font-size: var.$font-size-sm;
+      font-weight: 600;
+      color: var.$neutral600;
+    }
+
+    input {
+      padding: var.$spc-sm;
+      border: 1px solid var.$neutral200;
+      border-radius: 4px;
+      font-size: var.$font-size-body;
+
+      &:focus {
+        outline: none;
+        border-color: var.$secondary500;
+      }
+    }
+  }
+}
+
+.ModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var.$spc-sm;
+  margin-top: var.$spc-lg;
 }
