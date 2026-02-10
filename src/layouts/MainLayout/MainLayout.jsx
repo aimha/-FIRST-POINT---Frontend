@@ -17,11 +17,11 @@ function MainLayout(props) {
   return (
     <div class={styles.Page}>
       <div class={styles.Sidebar}>
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
 
       <main class={styles.Main}>
-        {/* {props.children} */}
+        {props.children}
       </main>
     </div>
   )

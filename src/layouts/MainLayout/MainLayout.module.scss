@@ -6,13 +6,20 @@
 // COMPONENT STYLES
 
 .Page {
+  display: grid;
+  grid-template-columns: var.$spc-10xl 1fr;
+  grid-template-rows: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
   .Sidebar {
-    width: var.$spc-9xl;
-    background-color: red;
+    grid-column: 1;
+    height: 100%;
   }
 
   .Main {
-    background-color: blue;
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
   }
 }
-
