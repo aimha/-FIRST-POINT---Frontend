@@ -1,1 +1,47 @@
+// IMPORTS
+
+@use '../../styles/variables.module' as var;
+@use '../../styles/typography.module' as ty;
+
 // COMPONENT STYLES
+
+.Table {
+  background-color: var.$neutral50;
+  padding: var.$spc-md;
+  margin: 0 var.$spc-md;
+  border-radius: var.$spc-sm;
+
+  &__row {
+    padding: var.$spc-md;
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr 1fr 1fr 1fr 2rem;
+    align-items: center;
+    border-radius: var.$spc-sm;
+
+    &:nth-child(even) {
+      background-color: var.$secondary50;
+    }
+  }
+
+  &__cell {
+    font-size: var.$font-size-body;
+
+    &--id,
+    &--piva,
+    &--email,
+    &--phone,
+    &--dossier {
+      font-size: var.$font-size-sm;
+    }
+
+    &--id,
+    &--piva{
+      color: var.$neutral500;
+    }
+
+    &--name {
+      color: var.$neutral900;
+      font-weight: var.$font-weight-bold;
+    }
+  }
+}

@@ -6,6 +6,7 @@
 // COMPONENT STYLES
 
 .Page {
+  background-color: var.$neutral100;
   display: grid;
   grid-template-columns: var.$spc-10xl 1fr;
   grid-template-rows: 100vh;
@@ -13,6 +14,7 @@
   overflow: hidden;
 
   .Sidebar {
+    background-color: var.$neutral50;
     grid-column: 1;
     height: 100%;
   }
