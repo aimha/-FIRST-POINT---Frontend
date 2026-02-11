@@ -5,17 +5,10 @@ import { onMount } from 'solid-js';
 // import style
 import styles from './Pratiche.module.scss';
 
-// import logic
-import PraticheClass from './Pratiche.module';
-
 function Pratiche() {
   let root;
-  let hp;
 
   onMount(() => {
-    // initialize telefonate logic
-    hp = new PraticheClass(root, styles);
-    hp.init();
   })
 
   return (

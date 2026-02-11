@@ -3,11 +3,8 @@ import { onMount } from 'solid-js';
 // import style
 import styles from './MainLayout.module.scss'
 
-// import logic
-// import MainLayoutClass from './MainLayout.module';
-
 // import components
-import Sidebar from '../../components/sidebar/Sidebar';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 function MainLayout(props) {
 

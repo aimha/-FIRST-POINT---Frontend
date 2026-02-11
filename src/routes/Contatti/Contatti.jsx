@@ -1,13 +1,11 @@
-import { onMount, For, createResource, createSignal, Show } from 'solid-js';
+import { onMount, createResource, createSignal, Show } from 'solid-js';
 import { Portal } from "solid-js/web";
 
 // import page components
+import Table from '../../components/Table/Table';
 
 // import style
 import styles from './Contatti.module.scss';
-
-// import logic
-import ContattiClass from './Contatti.module';
 
 // get json from endpoint
 const fetchContacts = async () => {
@@ -26,7 +24,6 @@ function Contatti() {
   const [showModal, setShowModal] = createSignal(false);
 
   let root;
-  let hp;
 
   const handleAddContact = (e) => {
     e.preventDefault();
@@ -36,9 +33,6 @@ function Contatti() {
   const closeModal = () => setShowModal(false);
 
   onMount(() => {
-    // initialize telefonate logic
-    hp = new ContattiClass(root, styles);
-    hp.init();
   })
 
   return (
@@ -50,52 +44,8 @@ function Contatti() {
             + Nuovo Contatto
           </button>
         </div>
-        <ul class={styles.Table}>
-          <li class={styles.Table__heading}>
-            <div>ID</div>
-            <div>Nome / Azienda</div>
-            <div>Tag</div>
-            <div>P.IVA</div>
-            <div>E-mail</div>
-            <div>Telefono</div>
-            <div>Pratiche</div>
-          </li>
-          <For each={contacts()}>
-            {(contact) => (
-              <li class={styles.Table__row}>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--id']}`}>
-                  {contact.id}
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--name']}`}>
-                  {contact.nome}
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--tag']}`}>
-                  <For each={contact.tag}>
-                    {(tag) => (
-                      <span>{tag}</span>
-                    )}
-                  </For>
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--piva']}`}>
-                  {contact.piva}
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--email']}`}>
-                  {contact.email}
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--phone']}`}>
-                  <For each={contact.telefono}>
-                    {(num) => (
-                      <span>{num}</span>
-                    )}
-                  </For>
-                </div>
-                <div class={`${styles.Table__cell} ${styles['Table__cell--dossier']}`}>
-                  {contact.pratiche}
-                </div>
-              </li>
-            )}
-          </For>
-        </ul>
+
+        <Table payload={contacts()} />
       </div>
 
       <Portal>

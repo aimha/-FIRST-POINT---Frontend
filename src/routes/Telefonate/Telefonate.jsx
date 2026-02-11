@@ -5,17 +5,10 @@ import { onMount } from 'solid-js';
 // import style
 import styles from './Telefonate.module.scss';
 
-// import logic
-import TelefonateClass from './Telefonate.module';
-
 function Telefonate() {
   let root;
-  let hp;
 
   onMount(() => {
-    // initialize telefonate logic
-    hp = new TelefonateClass(root, styles);
-    hp.init();
   })
 
   return (

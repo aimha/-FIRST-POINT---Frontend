@@ -37,89 +37,89 @@
   }
 }
 
-.Table {
-  background-color: var.$neutral50;
-  padding: var.$spc-sm;
-  margin: 0 var.$spc-md var.$spc-4xl;
-  border-radius: var.$spc-sm;
-
-  &__heading,
-  &__row {
-    display: grid;
-    grid-template-columns: var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl;
-    align-items: center;
-  }
-
-  &__row {
-    padding: var.$spc-xl var.$spc-md;
-    border-radius: var.$spc-sm;
-    border: 1px solid transparent;
-    cursor: pointer;
-
-    &:nth-child(odd) {
-      background-color: var.$neutral65;
-    }
-
-    &:hover {
-      border: 1px solid var.$secondary500;
-    }
-  }
-
-  &__heading {
-    padding: var.$spc-md;
-    border-radius: var.$spc-sm var.$spc-sm 0 0;
-    background-color: var.$secondary500;
-    font-size: var.$font-size-sm;
-    font-weight: var.$font-weight-medium;
-    color: var.$secondary50;
-    letter-spacing: .024rem;
-  }
-
-  &__cell {
-    font-size: var.$font-size-body;
-    line-height: var.$line-height-tight;
-
-    &--id,
-    &--piva,
-    &--email,
-    &--phone,
-    &--dossier {
-      font-size: var.$font-size-sm;
-    }
-
-    &--id,
-    &--piva {
-      color: var.$neutral500;
-    }
-
-    &--name {
-      color: var.$neutral900;
-      font-weight: var.$font-weight-bold;
-      letter-spacing: .0125rem;
-    }
-
-    &--tag {
-      span {
-        background-color: var.$secondary50;
-        color: var.$secondary500;
-        font-size: var.$font-size-xs;
-        font-weight: var.$font-weight-bold;
-        text-transform: uppercase;
-        letter-spacing: .025rem;
-        padding: var.$spc-sm;
-        margin-right: var.$spc-sm;
-        border-radius: var.$spc-4xl;
-      }
-    }
-
-    &--phone {
-      span {
-        margin-right: var.$spc-sm;
-      }
-    }
-  }
-}
-
+// .Table {
+//   background-color: var.$neutral50;
+//   padding: var.$spc-sm;
+//   margin: 0 var.$spc-md var.$spc-4xl;
+//   border-radius: var.$spc-sm;
+//
+//   &__heading,
+//   &__row {
+//     display: grid;
+//     grid-template-columns: var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl;
+//     align-items: center;
+//   }
+//
+//   &__row {
+//     padding: var.$spc-xl var.$spc-md;
+//     border-radius: var.$spc-sm;
+//     border: 1px solid transparent;
+//     cursor: pointer;
+//
+//     &:nth-child(odd) {
+//       background-color: var.$neutral65;
+//     }
+//
+//     &:hover {
+//       border: 1px solid var.$secondary500;
+//     }
+//   }
+//
+//   &__heading {
+//     padding: var.$spc-md;
+//     border-radius: var.$spc-sm var.$spc-sm 0 0;
+//     background-color: var.$secondary500;
+//     font-size: var.$font-size-sm;
+//     font-weight: var.$font-weight-medium;
+//     color: var.$secondary50;
+//     letter-spacing: .024rem;
+//   }
+//
+//   &__cell {
+//     font-size: var.$font-size-body;
+//     line-height: var.$line-height-tight;
+//
+//     &--id,
+//     &--piva,
+//     &--email,
+//     &--phone,
+//     &--dossier {
+//       font-size: var.$font-size-sm;
+//     }
+//
+//     &--id,
+//     &--piva {
+//       color: var.$neutral500;
+//     }
+//
+//     &--name {
+//       color: var.$neutral900;
+//       font-weight: var.$font-weight-bold;
+//       letter-spacing: .0125rem;
+//     }
+//
+//     &--tag {
+//       span {
+//         background-color: var.$secondary50;
+//         color: var.$secondary500;
+//         font-size: var.$font-size-xs;
+//         font-weight: var.$font-weight-bold;
+//         text-transform: uppercase;
+//         letter-spacing: .025rem;
+//         padding: var.$spc-sm;
+//         margin-right: var.$spc-sm;
+//         border-radius: var.$spc-4xl;
+//       }
+//     }
+//
+//     &--phone {
+//       span {
+//         margin-right: var.$spc-sm;
+//       }
+//     }
+//   }
+// }
+//
 .ModalOverlay {
   position: fixed;
   top: 0;

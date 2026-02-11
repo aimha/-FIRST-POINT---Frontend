@@ -5,9 +5,6 @@ import { createSignal, For } from 'solid-js';
 // import style
 import styles from './Sidebar.module.scss'
 
-// import logic
-import SidebarClass from './Sidebar.module';
-
 function Sidebar() {
   const [activeTab, setActiveTab] = createSignal('Telefonate');
   const menuItems = [
