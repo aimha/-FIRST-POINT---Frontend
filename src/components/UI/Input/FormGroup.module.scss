@@ -1,0 +1,30 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var.$spc-xs;
+
+  label {
+    font-size: var.$font-size-sm;
+    font-weight: 600;
+    color: var.$neutral600;
+  }
+
+  input {
+    padding: var.$spc-sm;
+    border: 1px solid var.$neutral200;
+    border-radius: 4px;
+    font-size: var.$font-size-body;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
+  }
+}

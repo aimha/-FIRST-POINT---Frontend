@@ -1,0 +1,12 @@
+// IMPORTS
+
+@use '../../../styles/variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.ModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: var.$spc-md;
+}
