@@ -14,6 +14,13 @@ function AddContactForm(props) {
         <FormGroup label="Partita IVA">
           <input type="text" placeholder="IT00000000000" />
         </FormGroup>
+        <FormGroup label="E-Mail">
+          <input type="text" placeholder="mario.rossi@email.com" />
+        </FormGroup>
+        <FormGroup label="Telefono">
+          <input type="text" placeholder="+390000000000" />
+        </FormGroup>
+
       </form>
     </>
   );
