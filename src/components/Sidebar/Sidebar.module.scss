@@ -36,8 +36,8 @@
     width: 100%;
     padding: var.$spc-sm var.$spc-md;
     font-family: inherit;
-    font-size: var.$font-size-sm;
-    font-weight: 400;
+    font-size: var.$font-size-body;
+    font-weight: var.$font-weight-normal;
     text-align: left;
     background: transparent;
     border: none;
@@ -51,14 +51,14 @@
 
     &:hover {
       color: var.$neutral800;
-      background: var.$primary50;
+      background: var.$secondary50;
       transition: all 0.2s var.$bezier-productiveEaseOut;
     }
 
     &--active {
       color: var.$neutral100;
-      background-color: var.$primary500;
-      font-weight: 800;
+      background-color: var.$secondary500;
+      font-weight: var.$font-weight-bold;
 
       &:hover {
         color: var.$neutral50;

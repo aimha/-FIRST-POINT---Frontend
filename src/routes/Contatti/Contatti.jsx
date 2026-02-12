@@ -4,6 +4,8 @@ import { onMount, createResource, createSignal, Show } from 'solid-js';
 import Table from '../../components/Table/Table';
 import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './Components/AddContactForm';
+import HeadingButton from '../../components/UI/Button/HeadingButton';
+import PageHeader from '../../components/UI/PageHeader/PageHeader';
 
 // import style
 import styles from './Contatti.module.scss';
@@ -39,12 +41,9 @@ function Contatti() {
   return (
     <>
       <div ref={root} class={`${styles.Container}`}>
-        <div class={styles.Heading}>
-          <h1>Contatti</h1>
-          <button class={styles.Heading__btn} onClick={handleAddContact}>
-            + Nuovo Contatto
-          </button>
-        </div>
+        <PageHeader title="Contatti">
+          <HeadingButton title="Nuovo Contatto" onClick={handleAddContact}></HeadingButton>
+        </PageHeader>
 
         <Table payload={contacts()} />
       </div>
@@ -53,7 +52,7 @@ function Contatti() {
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
         title="Aggiungi nuovo contatto">
-          <AddContactForm />
+        <AddContactForm />
       </Modal>
     </>
   );

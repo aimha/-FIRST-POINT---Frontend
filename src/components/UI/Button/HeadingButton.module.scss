@@ -1,0 +1,25 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+button {
+  display: flex;
+  align-items: center;
+  padding: var.$spc-md;
+  background-color: var.$secondary500;
+  color: var.$neutral50;
+  font-size: var.$font-size-sm;
+  font-weight: 600;
+
+  border: none;
+  border-radius: var.$spc-sm;
+  cursor: pointer;
+  transition: all 0.2s var.$bezier-productiveEaseOut;
+
+  &:hover {
+    background-color: var.$primary500;
+  }
+}
