@@ -7,6 +7,7 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import Telefonate from "./routes/Telefonate/Telefonate";
 import Pratiche from "./routes/Pratiche/Pratiche";
 import Contatti from "./routes/Contatti/Contatti";
+import Operatori from "./routes/Operatori/Operatori";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/" component={ Telefonate } />
       <Route path="/contatti" component={ Contatti } />
       <Route path="/pratiche" component={ Pratiche } />
+      <Route path="/operatori" component={ Operatori } />
     </Router>
   );
 }

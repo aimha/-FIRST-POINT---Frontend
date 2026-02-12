@@ -52,10 +52,22 @@ $neutral700: oklch(0.40 0.008 137.36);
 $neutral800: oklch(0.28 0.009 137.36);
 $neutral900: oklch(0.1492 0.01 137.36); // Base Scura
 
-/* Utility */
-$error: oklch(0.45 0.22 26.9);
-$alert: oklch(0.8365 0.1719 83.0703);
-$success: oklch(0.7484 0.1996 151.3);
+/* Utility Colors */
+
+// Error
+$error300: oklch(0.65 0.18 26.9);
+$error500: oklch(0.45 0.22 26.9); // Base
+$error700: oklch(0.30 0.15 26.9);
+
+// Alert
+$alert300: oklch(0.92 0.12 83.07);
+$alert500: oklch(0.8365 0.1719 83.07); // Base
+$alert700: oklch(0.65 0.15 83.07);
+
+// Success
+$success300: oklch(0.88 0.12 151.3);
+$success500: oklch(0.7484 0.1996 151.3); // Base
+$success700: oklch(0.50 0.16 151.3);
 
 /***************************************
 ****  Fonts ****************************
@@ -87,6 +99,7 @@ $line-height-none: 1;
 $line-height-tight: 1.25;
 $line-height-normal: 1.5;
 $line-height-relaxed: 1.625;
+$line-height-ultra: 2;
 
 /***************************************
 **** Spacings **************************

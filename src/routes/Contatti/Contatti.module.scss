@@ -5,6 +5,49 @@
 
 // COMPONENT STYLES
 
+.Table__cell {
+    font-size: var.$font-size-body;
+    line-height: var.$line-height-tight;
+
+    &--id,
+    &--piva,
+    &--email,
+    &--phone,
+    &--dossier {
+      font-size: var.$font-size-sm;
+    }
+
+    &--id,
+    &--piva {
+      color: var.$neutral500;
+    }
+
+    &--name {
+      color: var.$neutral900;
+      font-weight: var.$font-weight-bold;
+      letter-spacing: .0125rem;
+    }
+
+    &--tag {
+      span {
+        background-color: var.$alert500;
+        color: var.$neutral50;
+        font-size: var.$font-size-xs;
+        font-weight: var.$font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: .025rem;
+        padding: var.$spc-sm;
+        margin-right: var.$spc-sm;
+        border-radius: var.$spc-4xl;
+      }
+    }
+
+    &--phone {
+      span {
+        margin-right: var.$spc-sm;
+      }
+    }
+  }
 
 .ModalActions {
   display: flex;
@@ -12,3 +55,4 @@
   gap: var.$spc-sm;
   margin-top: var.$spc-lg;
 }
+

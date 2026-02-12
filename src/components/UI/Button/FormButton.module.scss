@@ -1,0 +1,41 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.Form__btn {
+  display: flex;
+  align-items: center;
+  gap: var.$spc-xs;
+  padding: var.$spc-md;
+  color: var.$neutral50;
+  font-size: var.$font-size-sm;
+  font-weight: 600;
+
+  border: none;
+  border-radius: var.$spc-2xl;
+  cursor: pointer;
+  transition: all 0.2s var.$bezier-productiveEaseOut;
+}
+
+.Primary {
+  background-color: var.$secondary500;
+
+  &:hover {
+    background-color: var.$primary500;
+  }
+}
+
+.Secondary {
+  background-color: var.$neutral50;
+  color: var.$alert500;
+  border: 2px solid var.$alert500;
+
+  &:hover {
+    background-color: var.$alert500;
+    color: var.$neutral50;
+    border: 2px solid var.$alert500;
+  }
+}

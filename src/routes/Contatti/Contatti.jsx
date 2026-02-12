@@ -1,7 +1,8 @@
-import { onMount, createResource, createSignal, Show } from 'solid-js';
+import { onMount, createResource, createSignal } from 'solid-js';
 
 // import page components
 import Table from '../../components/Table/Table';
+import Tag from '../../components/UI/Badge/Tag';
 import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './Components/AddContactForm';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
@@ -23,17 +24,24 @@ const fetchContacts = async () => {
 };
 
 function Contatti() {
+  let root;
+
+  // Table configuration
+  const columns = [
+    { label: "ID" }, { label: "Nome" }, { label: "Tag" },
+    { label: "P.IVA" }, { label: "E-mail" }, { label: "Telefono" }, { label: "Pratiche" }
+  ];
+  const gridConfig = "var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl";
+
+  // resources / signals
   const [contacts] = createResource(fetchContacts);
   const [showModal, setShowModal] = createSignal(false);
 
-  let root;
-
+  // handle modal
   const handleAddContact = (e) => {
     e.preventDefault();
     setShowModal(true);
   };
-
-  const closeModal = () => setShowModal(false);
 
   onMount(() => {
   })
@@ -45,14 +53,51 @@ function Contatti() {
           <HeadingButton title="Nuovo Contatto" onClick={handleAddContact}></HeadingButton>
         </PageHeader>
 
-        <Table payload={contacts()} />
+        <Table
+          data={contacts()}
+          columns={columns}
+          gridConfig={gridConfig}
+          renderRow={(contact) => (
+            <>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--id']}`}>
+                {contact.id}
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--name']}`}>
+                {contact.nome}
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--tag']}`}>
+                <For each={contact.tag}>
+                  {(tag) => (
+                    <Tag tag={tag}></Tag>
+                  )}
+                </For>
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--piva']}`}>
+                {contact.piva}
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--email']}`}>
+                {contact.email}
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--phone']}`}>
+                <For each={contact.telefono}>
+                  {(num) => (
+                    <span>{num}</span>
+                  )}
+                </For>
+              </div>
+              <div class={`${styles.Table__cell} ${styles['Table__cell--dossier']}`}>
+                {contact.pratiche}
+              </div>
+            </>
+          )}
+        />
       </div>
 
       <Modal
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
         title="Aggiungi nuovo contatto">
-        <AddContactForm />
+        <AddContactForm onClose={() => setShowModal(false)} />
       </Modal>
     </>
   );

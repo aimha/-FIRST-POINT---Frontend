@@ -1,0 +1,18 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.Tag {
+  background-color: var.$alert500;
+  color: var.$neutral50;
+  font-size: var.$font-size-xs;
+  font-weight: var.$font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: .025rem;
+  padding: var.$spc-sm;
+  margin-right: var.$spc-sm;
+  border-radius: var.$spc-4xl;
+}

@@ -14,6 +14,7 @@ function Sidebar() {
     { label: 'Telefonate', icon: 'call', path: '/' },
     { label: 'Contatti', icon: 'person', path: '/contatti' },
     { label: 'Pratiche', icon: 'folder', path: '/pratiche' },
+    { label: 'Operatori', icon: 'support_agent', path: '/operatori' },
   ];
 
   onMount(() => {

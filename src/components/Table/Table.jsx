@@ -1,61 +1,31 @@
-import { onMount, For } from 'solid-js';
+import { onMount } from 'solid-js';
 
 // import style
-import styles from './Table.module.scss'
+import styles from "./Table.module.scss";
 
-function Table(props) {
+function TableBis(props) {
 
   onMount(() => {
   });
 
   return (
-    <ul class={styles.Table}>
+    <ul class={styles.Table} style={{ "grid-template-columns": props.gridConfig }}>
+      {/* Header dinamico */}
       <li class={styles.Table__heading}>
-        <div>ID</div>
-        <div>Nome / Azienda</div>
-        <div>Tag</div>
-        <div>P.IVA</div>
-        <div>E-mail</div>
-        <div>Telefono</div>
-        <div>Pratiche</div>
+        <For each={props.columns}>
+          {(col) => <div>{col.label}</div>}
+        </For>
       </li>
-      <For each={props.payload}>
-        {(contact) => (
+
+      {/* Righe dinamiche tramite children */}
+      <For each={props.data}>
+        {(item) => (
           <li class={styles.Table__row}>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--id']}`}>
-              {contact.id}
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--name']}`}>
-              {contact.nome}
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--tag']}`}>
-              <For each={contact.tag}>
-                {(tag) => (
-                  <span>{tag}</span>
-                )}
-              </For>
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--piva']}`}>
-              {contact.piva}
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--email']}`}>
-              {contact.email}
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--phone']}`}>
-              <For each={contact.telefono}>
-                {(num) => (
-                  <span>{num}</span>
-                )}
-              </For>
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--dossier']}`}>
-              {contact.pratiche}
-            </div>
+            {props.renderRow(item)}
           </li>
         )}
       </For>
     </ul>
-  )
+  );
 }
-
-export default Table;
+export default TableBis;

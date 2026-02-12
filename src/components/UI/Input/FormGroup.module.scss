@@ -11,16 +11,23 @@
   gap: var.$spc-xs;
 
   label {
+    margin-bottom: var.$spc-xs;
+    padding-left: var.$spc-xs;
     font-size: var.$font-size-sm;
-    font-weight: 600;
-    color: var.$neutral600;
+    font-weight: var.$font-weight-semibold;
+    color: var.$neutral900;
   }
 
   input {
     padding: var.$spc-sm;
     border: 1px solid var.$neutral200;
-    border-radius: 4px;
+    border-radius: var.$spc-sm;
+    line-height: var.$line-height-ultra;
     font-size: var.$font-size-body;
+
+    &::placeholder {
+      color: var.$neutral300;
+    }
 
     &:focus {
       outline: none;
