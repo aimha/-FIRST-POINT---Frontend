@@ -32,9 +32,12 @@
   }
 
   &__item {
-    display: block;
+    // display: block;
+    display: flex;
+    align-items: center;
+    gap: var.$spc-sm;
     width: 100%;
-    padding: var.$spc-sm var.$spc-md;
+    padding: var.$spc-md;
     font-family: inherit;
     font-size: var.$font-size-body;
     font-weight: var.$font-weight-normal;

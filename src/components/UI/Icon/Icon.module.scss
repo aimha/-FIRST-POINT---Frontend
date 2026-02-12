@@ -1,0 +1,10 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.Icon {
+  font-size: var.$font-size-medium;
+}

@@ -8,6 +8,7 @@
 button {
   display: flex;
   align-items: center;
+  gap: var.$spc-sm;
   padding: var.$spc-md;
   background-color: var.$secondary500;
   color: var.$neutral50;
