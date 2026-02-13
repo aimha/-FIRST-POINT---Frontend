@@ -2,7 +2,6 @@ import { onMount, createResource, createSignal } from 'solid-js';
 
 // import page components
 import Table from '../../components/Table/Table';
-import Tag from '../../components/UI/Badge/Tag';
 import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './Components/AddContactForm';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
