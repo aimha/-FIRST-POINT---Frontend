@@ -1,6 +1,7 @@
 // import page components
 import FormGroup from '../../../components/UI/Input/FormGroup';
 import FormButton from '../../../components/UI/Button/FormButton';
+import TextArea from '../../../components/UI/Input/TextArea';
 
 // import style
 import styles from './AddContactForm.module.scss';
@@ -24,21 +25,48 @@ function AddContactForm(props) {
   return (
     <>
       <form class={styles.ModalForm} onSubmit={handleSubmit}>
-        <FormGroup label="Nome">
-          <input type="text" name="name" placeholder="Es: Studio Legale Rossi" />
-        </FormGroup>
-        <FormGroup label="Partita IVA">
-          <input type="text" name="piva" placeholder="IT00000000000" />
-        </FormGroup>
-        <FormGroup label="E-Mail">
-          <input type="text" name="email" placeholder="mario.rossi@email.com" />
-        </FormGroup>
-        <FormGroup label="Telefono">
-          <input type="text" name="phone" placeholder="+390000000000" />
-        </FormGroup>
-        <FormGroup label="Tags (separati da una virgola)">
-          <input type="text" name="tags" placeholder="Tag" />
-        </FormGroup>
+        <div class={styles.ModalRow}>
+          <FormGroup label="Nome">
+            <input type="text" name="nome" placeholder="Es: Mario" />
+          </FormGroup>
+          <FormGroup label="Cognome">
+            <input type="text" name="cognome" placeholder="Es: Rossi" />
+          </FormGroup>
+        </div>
+        <div class={styles.ModalRow}>
+          <FormGroup label="Azienda">
+            <input type="text" name="azienda" placeholder="Es: Studio Legale Rossi" />
+          </FormGroup>
+          <FormGroup label="E-Mail">
+            <input type="text" name="email" placeholder="mario.rossi@email.com" />
+          </FormGroup>
+        </div>
+        <div class={styles.ModalRow}>
+          <FormGroup label="Cellulare">
+            <input type="text" name="cellulare" placeholder="+390000000000" />
+          </FormGroup>
+          <FormGroup label="Cellulare 2">
+            <input type="text" name="cellulare2" placeholder="+390000000000" />
+          </FormGroup>
+        </div>
+        <div class={styles.ModalRow}>
+          <FormGroup label="Casa">
+            <input type="text" name="casa" placeholder="02345678" />
+          </FormGroup>
+          <FormGroup label="Ufficio">
+            <input type="text" name="ufficio" placeholder="02345678" />
+          </FormGroup>
+        </div>
+        <div class={styles.ModalRow}>
+          <FormGroup label="Ufficio 2">
+            <input type="text" name="ufficio2" placeholder="02345678" />
+          </FormGroup>
+          <FormGroup label="fax">
+            <input type="text" name="fax" placeholder="02345678" />
+          </FormGroup>
+        </div>
+        <TextArea label="Note" id="note" name="note" placeholder="Aggiungi dettagli contatto...">
+        </TextArea>
 
         <div class={styles.ModalActions}>
           <FormButton

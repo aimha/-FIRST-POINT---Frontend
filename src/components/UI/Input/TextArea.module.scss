@@ -1,0 +1,38 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.TextArea {
+  display: flex;
+  flex-direction: column;
+  gap: var.$spc-xs;
+}
+
+label {
+  margin-bottom: var.$spc-xs;
+  padding-left: var.$spc-xs;
+  font-size: var.$font-size-sm;
+  font-weight: var.$font-weight-semibold;
+  color: var.$neutral900;
+}
+
+textarea {
+  padding: var.$spc-sm;
+  border: 1px solid var.$neutral200;
+  border-radius: var.$spc-sm;
+  line-height: var.$line-height-tight;
+  font-size: var.$font-size-body;
+
+  &::placeholder {
+    color: var.$neutral300;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var.$secondary500;
+  }
+}
+
