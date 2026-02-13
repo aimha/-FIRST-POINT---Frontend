@@ -14,7 +14,6 @@
   &__heading,
   &__row {
     display: grid;
-    grid-template-columns: var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl;
     align-items: center;
   }
 
@@ -29,8 +28,8 @@
     }
 
     &:hover {
+      color: var.$secondary500;
       border: 1px solid var.$secondary300;
-      border-right: 10px solid var.$secondary300;
     }
   }
 
@@ -40,7 +39,7 @@
     background-color: var.$secondary500;
     font-size: var.$font-size-sm;
     font-weight: var.$font-weight-medium;
-    color: var.$secondary50;
+    color: var.$neutral50;
     letter-spacing: .024rem;
   }
 }

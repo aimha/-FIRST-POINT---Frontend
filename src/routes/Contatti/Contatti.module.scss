@@ -8,22 +8,14 @@
 .Table__cell {
     font-size: var.$font-size-body;
     line-height: var.$line-height-tight;
-
-    &--id,
-    &--piva,
+    
     &--email,
     &--phone,
     &--dossier {
       font-size: var.$font-size-sm;
     }
 
-    &--id,
-    &--piva {
-      color: var.$neutral500;
-    }
-
     &--name {
-      color: var.$neutral900;
       font-weight: var.$font-weight-bold;
       letter-spacing: .0125rem;
     }
@@ -39,12 +31,6 @@
         padding: var.$spc-sm;
         margin-right: var.$spc-sm;
         border-radius: var.$spc-4xl;
-      }
-    }
-
-    &--phone {
-      span {
-        margin-right: var.$spc-sm;
       }
     }
   }

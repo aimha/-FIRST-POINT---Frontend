@@ -13,7 +13,7 @@ import styles from './Contatti.module.scss';
 
 // get json from endpoint
 const fetchContacts = async () => {
-  const GIST_URL = "https://gist.githubusercontent.com/aimha/e18ffbc06c63d64a2d44e48a6928f5e8/raw/fa50dd8acdd161b3e01bd9070aff430d89699341/contatti.json";
+  const GIST_URL = "https://gist.githubusercontent.com/aimha/e18ffbc06c63d64a2d44e48a6928f5e8/raw/contatti.json";
 
   const response = await fetch(GIST_URL);
   if (!response.ok) {
@@ -28,10 +28,10 @@ function Contatti() {
 
   // Table configuration
   const columns = [
-    { label: "ID" }, { label: "Nome" }, { label: "Tag" },
-    { label: "P.IVA" }, { label: "E-mail" }, { label: "Telefono" }, { label: "Pratiche" }
+    { label: "Nome" }, { label: "Azienda" },
+    { label: "E-mail" }, { label: "Telefono" }, { label: "Pratiche" }
   ];
-  const gridConfig = "var.$spc-4xl 1.5fr 1fr .5fr 1fr 1fr var.$spc-4xl";
+  const gridConfig = "1fr 1fr 1fr 1fr 6rem";
 
   // resources / signals
   const [contacts] = createResource(fetchContacts);
@@ -57,39 +57,29 @@ function Contatti() {
           data={contacts()}
           columns={columns}
           gridConfig={gridConfig}
-          renderRow={(contact) => (
+          renderRow={(contact) => {
+            const optionalFields = ["cellulare2", "casa", "ufficio", "ufficio2", "fax"];
+            const extraCount = optionalFields.filter(field => contact[field] && contact[field].trim() !== "" && contact[field] !== "-").length;
+
+            return (
             <>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--id']}`}>
-                {contact.id}
-              </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--name']}`}>
-                {contact.nome}
+                {contact.nome} {contact.cognome}
               </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--tag']}`}>
-                <For each={contact.tag}>
-                  {(tag) => (
-                    <Tag tag={tag}></Tag>
-                  )}
-                </For>
-              </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--piva']}`}>
-                {contact.piva}
+              <div class={`${styles.Table__cell} ${styles['Table__cell--company']}`}>
+                {contact.azienda}
               </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--email']}`}>
                 {contact.email}
               </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--phone']}`}>
-                <For each={contact.telefono}>
-                  {(num) => (
-                    <span>{num}</span>
-                  )}
-                </For>
+                {contact.cellulare} [+{extraCount}]
               </div>
               <div class={`${styles.Table__cell} ${styles['Table__cell--dossier']}`}>
-                {contact.pratiche}
+                {Math.floor(Math.random() * 10) + 1}
               </div>
             </>
-          )}
+            )}}
         />
       </div>
 
