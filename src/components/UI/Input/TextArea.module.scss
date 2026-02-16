@@ -26,6 +26,8 @@ textarea {
   line-height: var.$line-height-tight;
   font-size: var.$font-size-body;
 
+  resize: none;
+
   &::placeholder {
     color: var.$neutral300;
   }

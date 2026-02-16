@@ -23,6 +23,8 @@
     border: 1px solid transparent;
     cursor: pointer;
 
+    transition: all 0.2s var.$bezier-productiveEaseOut;
+
     &:nth-child(odd) {
       background-color: var.$neutral65;
     }
@@ -30,6 +32,7 @@
     &:hover {
       color: var.$secondary500;
       border: 1px solid var.$secondary300;
+      background-color: var.$secondary50;
     }
   }
 

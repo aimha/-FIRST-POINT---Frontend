@@ -65,7 +65,7 @@ function AddContactForm(props) {
             <input type="text" name="fax" placeholder="02345678" />
           </FormGroup>
         </div>
-        <TextArea label="Note" id="note" name="note" placeholder="Aggiungi dettagli contatto...">
+        <TextArea label="Note" id="note" name="note" row="6" placeholder="Aggiungi dettagli contatto...">
         </TextArea>
 
         <div class={styles.ModalActions}>

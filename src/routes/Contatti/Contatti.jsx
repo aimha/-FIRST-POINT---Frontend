@@ -4,7 +4,7 @@ import { onMount, createResource, createSignal } from 'solid-js';
 import Table from '../../components/Table/Table';
 import Cell from '../../components/Table/components/Cell';
 import Modal from '../../components/UI/Modal/Modal';
-import AddContactForm from './Components/AddContactForm';
+import AddContactForm from './components/AddContactForm';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 
@@ -17,7 +17,6 @@ const fetchContacts = async () => {
 
   const response = await fetch(GIST_URL);
   if (!response.ok) {
-    // Lanciamo l'errore invece di catturarlo qui, così Solid lo vede
     throw new Error(`Errore HTTP: ${response.status}`);
   }
   return await response.json();

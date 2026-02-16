@@ -6,6 +6,8 @@ import Cell from '../../components/Table/components/Cell';
 import Icon from '../../components/UI/Icon/Icon';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
+import Modal from '../../components/UI/Modal/Modal';
+import AddDossierForm from './components/AddDossierForm';
 
 // import page components
 
@@ -18,7 +20,6 @@ const fetchDossier = async () => {
 
   const response = await fetch(GIST_URL);
   if (!response.ok) {
-    // Lanciamo l'errore invece di catturarlo qui, così Solid lo vede
     throw new Error(`Errore HTTP: ${response.status}`);
   }
   return await response.json();
@@ -29,12 +30,19 @@ function Pratiche() {
 
   // Table configuration
   const columns = [
-    { label: "Titolo" }, {label: "Descrizione"}, { label: "Data Apertura / Chiusura" }, { label: "Stato" }
+    { label: "Titolo" }, { label: "Descrizione" }, { label: "Data Apertura / Chiusura" }, { label: "Stato" }
   ];
   const gridConfig = "calc((100% - 24rem) / 2) calc((100% - 24rem) / 2) 16rem 8rem";
 
   // resources / signals
   const [dossier] = createResource(fetchDossier);
+  const [showModal, setShowModal] = createSignal(false);
+
+  // handle modal
+  const handleAddContact = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   onMount(() => {
   })
@@ -43,7 +51,7 @@ function Pratiche() {
     <>
       <div ref={root} class={`${styles.Container}`}>
         <PageHeader title="Pratiche">
-          <HeadingButton title="Nuova Pratica"></HeadingButton>
+          <HeadingButton title="Nuova Pratica" onClick={handleAddContact}></HeadingButton>
         </PageHeader>
       </div>
 
@@ -81,6 +89,13 @@ function Pratiche() {
           )
         }}
       />
+
+      <Modal
+        isOpen={showModal()}
+        onClose={() => setShowModal(false)}
+        title="Aggiungi nuova pratica">
+        <AddDossierForm onClose={() => setShowModal(false)} />
+      </Modal>
     </>
   );
 }
