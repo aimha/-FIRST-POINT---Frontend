@@ -1,0 +1,26 @@
+// IMPORTS
+
+@use '../../../styles/variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.ModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: var.$spc-md;
+}
+
+.ModalRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var.$spc-xl;
+}
+
+.ModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: var.$spc-md;
+  margin-top: var.$spc-sm;
+}

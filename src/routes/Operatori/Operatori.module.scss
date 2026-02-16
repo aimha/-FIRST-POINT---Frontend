@@ -1,1 +1,13 @@
+// IMPORTS
+
+@use '../../styles/variables.module' as var;
+@use '../../styles/typography.module' as ty;
+
 // COMPONENT STYLES
+
+.Table__cell {
+  &--name,
+  &--intern {
+    font-weight: var.$font-weight-bold;
+  }
+}

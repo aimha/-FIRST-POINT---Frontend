@@ -30,7 +30,7 @@ function Contatti() {
     { label: "Nome" }, { label: "Azienda" },
     { label: "E-mail" }, { label: "Telefono" }, { label: "Pratiche" }
   ];
-  const gridConfig = "1fr 1fr 1fr 1fr 6rem";
+  const gridConfig = "1fr 1fr 1fr 1fr 8rem";
 
   // resources / signals
   const [contacts] = createResource(fetchContacts);
@@ -72,7 +72,7 @@ function Contatti() {
                 {contact.email}
               </Cell>
               <Cell class={styles['Table__cell--phone']}>
-                {contact.cellulare} [+{extraCount}]
+                {contact.cellulare} <span>[+{extraCount}]</span>
               </Cell>
               <Cell class={styles['Table__cell--dossier']}>
                 {Math.floor(Math.random() * 10) + 1}

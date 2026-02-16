@@ -6,28 +6,14 @@
 // COMPONENT STYLES
 
 .Table__cell {
-    &--email,
-    &--phone,
-    &--dossier {
-      font-size: var.$font-size-sm;
-    }
-
     &--name {
       font-weight: var.$font-weight-bold;
       letter-spacing: .0125rem;
     }
 
-    &--tag {
+    &--phone {
       span {
-        background-color: var.$alert500;
-        color: var.$neutral50;
-        font-size: var.$font-size-xs;
-        font-weight: var.$font-weight-bold;
-        text-transform: uppercase;
-        letter-spacing: .025rem;
-        padding: var.$spc-sm;
-        margin-right: var.$spc-sm;
-        border-radius: var.$spc-4xl;
+        color: var.$success500;
       }
     }
   }

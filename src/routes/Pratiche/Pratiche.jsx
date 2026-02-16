@@ -9,8 +9,6 @@ import HeadingButton from '../../components/UI/Button/HeadingButton';
 import Modal from '../../components/UI/Modal/Modal';
 import AddDossierForm from './components/AddDossierForm';
 
-// import page components
-
 // import style
 import styles from './Pratiche.module.scss';
 
@@ -59,31 +57,31 @@ function Pratiche() {
         data={dossier()}
         columns={columns}
         gridConfig={gridConfig}
-        renderRow={(contact) => {
-          const isAttiva = contact.stato.toLowerCase() === 'attiva';
+        renderRow={(file) => {
+          const isAttiva = file.stato.toLowerCase() === 'attiva';
           const statusIcon = isAttiva ? 'check_circle' : 'lock';
           const statusClass = isAttiva ? styles['Table__cell--statusActive'] : styles['Table__cell--statusClosed'];
 
           return (
             <>
               <Cell class={styles['Table__cell--title']}>
-                {contact.titolo}
+                {file.titolo}
               </Cell>
               <Cell class={styles['Table__cell--desc']}>
                 <span class={styles.Truncate}>
-                  {contact.descrizione}
+                  {file.descrizione}
                 </span>
               </Cell>
               <Cell class={styles['Table__cell--dates']}>
-                {contact.data_apertura} - 
-                {contact.data_chiusura && contact.data_chiusura !== "null" && contact.data_chiusura.trim() !== ""
-                  ? contact.data_chiusura
+                {file.data_apertura} - 
+                {file.data_chiusura && file.data_chiusura !== "null" && file.data_chiusura.trim() !== ""
+                  ? file.data_chiusura
                   : <span>[In corso...]</span>
                 }
               </Cell>
               <Cell class={`${styles['Table__cell--status']} ${statusClass}`}>
                 <Icon name={statusIcon} />
-                {contact.stato}
+                {file.stato}
               </Cell>
             </>
           )
