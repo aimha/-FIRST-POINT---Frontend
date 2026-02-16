@@ -2,6 +2,8 @@ import { onMount, createResource, createSignal } from 'solid-js';
 
 // import page components
 import Table from '../../components/Table/Table';
+import Cell from '../../components/Table/components/Cell';
+import Icon from '../../components/UI/Icon/Icon';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
 
@@ -27,10 +29,9 @@ function Pratiche() {
 
   // Table configuration
   const columns = [
-    { label: "Titolo" }, { label: "Stato" },
-    { label: "Data Apertura" }, { label: "Data Chiusura" }
+    { label: "Titolo" }, {label: "Descrizione"}, { label: "Data Apertura / Chiusura" }, { label: "Stato" }
   ];
-  const gridConfig = "2fr 1fr 1fr 1fr";
+  const gridConfig = "calc((100% - 24rem) / 2) calc((100% - 24rem) / 2) 16rem 8rem";
 
   // resources / signals
   const [dossier] = createResource(fetchDossier);
@@ -50,16 +51,35 @@ function Pratiche() {
         data={dossier()}
         columns={columns}
         gridConfig={gridConfig}
-        renderRow={(contact) => (
-          <>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--titolo']}`}>
-              {contact.titolo}
-            </div>
-            <div class={`${styles.Table__cell} ${styles['Table__cell--status']}`}>
-              {contact.stato}
-            </div>
-          </>
-        )}
+        renderRow={(contact) => {
+          const isAttiva = contact.stato.toLowerCase() === 'attiva';
+          const statusIcon = isAttiva ? 'check_circle' : 'lock';
+          const statusClass = isAttiva ? styles['Table__cell--statusActive'] : styles['Table__cell--statusClosed'];
+
+          return (
+            <>
+              <Cell class={styles['Table__cell--title']}>
+                {contact.titolo}
+              </Cell>
+              <Cell class={styles['Table__cell--desc']}>
+                <span class={styles.Truncate}>
+                  {contact.descrizione}
+                </span>
+              </Cell>
+              <Cell class={styles['Table__cell--dates']}>
+                {contact.data_apertura} - 
+                {contact.data_chiusura && contact.data_chiusura !== "null" && contact.data_chiusura.trim() !== ""
+                  ? contact.data_chiusura
+                  : <span>[In corso...]</span>
+                }
+              </Cell>
+              <Cell class={`${styles['Table__cell--status']} ${statusClass}`}>
+                <Icon name={statusIcon} />
+                {contact.stato}
+              </Cell>
+            </>
+          )
+        }}
       />
     </>
   );

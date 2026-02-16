@@ -1,0 +1,11 @@
+// IMPORTS
+
+@use '../../../styles/variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+
+.Table__cell {
+  font-size: var.$font-size-body;
+  line-height: var.$line-height-tight;
+}

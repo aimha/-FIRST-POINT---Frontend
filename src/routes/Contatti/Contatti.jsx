@@ -2,6 +2,7 @@ import { onMount, createResource, createSignal } from 'solid-js';
 
 // import page components
 import Table from '../../components/Table/Table';
+import Cell from '../../components/Table/components/Cell';
 import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './Components/AddContactForm';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
@@ -62,21 +63,21 @@ function Contatti() {
 
             return (
             <>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--name']}`}>
+              <Cell class={styles['Table__cell--name']}>
                 {contact.nome} {contact.cognome}
-              </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--company']}`}>
+              </Cell>
+              <Cell class={styles['Table__cell--company']}>
                 {contact.azienda}
-              </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--email']}`}>
+              </Cell>
+              <Cell class={styles['Table__cell--email']}>
                 {contact.email}
-              </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--phone']}`}>
+              </Cell>
+              <Cell class={styles['Table__cell--phone']}>
                 {contact.cellulare} [+{extraCount}]
-              </div>
-              <div class={`${styles.Table__cell} ${styles['Table__cell--dossier']}`}>
+              </Cell>
+              <Cell class={styles['Table__cell--dossier']}>
                 {Math.floor(Math.random() * 10) + 1}
-              </div>
+              </Cell>
             </>
             )}}
         />

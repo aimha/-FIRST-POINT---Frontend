@@ -1,1 +1,44 @@
+// IMPORTS
+
+@use '../../styles/variables.module' as var;
+@use '../../styles/typography.module' as ty;
+
 // COMPONENT STYLES
+
+.Table__cell {
+  &--title {
+    font-weight: var.$font-weight-bold;
+  }
+
+  &--desc {
+    font-size: var.$font-size-sm;
+    padding-right: var.$spc-4xl;
+  }
+
+  &--status {
+    display: flex;
+    align-items: center;
+    font-weight: var.$font-weight-bold;
+
+    span {
+      margin-right: var.$spc-xs;
+    }
+
+    &Active {
+      color: var.$success500;
+    }
+
+    &Closed {
+      color: var.$error500;
+    }
+  }
+}
+
+.Truncate {
+  text-align: left;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

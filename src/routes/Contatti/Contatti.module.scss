@@ -6,9 +6,6 @@
 // COMPONENT STYLES
 
 .Table__cell {
-    font-size: var.$font-size-body;
-    line-height: var.$line-height-tight;
-    
     &--email,
     &--phone,
     &--dossier {
