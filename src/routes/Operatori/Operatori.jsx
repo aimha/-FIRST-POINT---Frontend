@@ -27,7 +27,7 @@ function Operatori() {
   
   // Table configuration
   const columns = [
-    { label: "Nome Cognome" }, { label: "Email" }, { label: "Roulo" }, { label: "interno" }
+    { label: "Nome Cognome" }, { label: "Email" }, { label: "Roulo" }, { label: "Interno" }
   ];
   const gridConfig = "1fr 1fr 1fr 8rem";
 
