@@ -7,19 +7,17 @@ import TextArea from '../../../components/UI/Input/TextArea';
 import styles from './AddContactForm.module.scss';
 
 function AddContactForm(props) {
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    // finta richiesta POST
-    console.log("--- Finta Richiesta POST verso NestJS ---");
-    console.log("Endpoint: POST /api/contacts");
     console.log("Payload:", data);
-    console.log("------------------------------------------");
-
-    props.onClose();
+    if (props.onSuccess) {
+      props.onSuccess();
+    }
   };
 
   return (

@@ -66,7 +66,8 @@ function ContactDetail(props) {
           title="Elimina Contatto"
           type="button"
           icon="delete"
-          variant="Delete">
+          variant="Delete"
+          onClick={() => props.onDelete(props.data.id)}>
         </FormButton>
         <FormButton
           title="Modifica Contatto"

@@ -1,15 +1,15 @@
-import { onMount } from 'solid-js';
-
 // import style
 import styles from './MainLayout.module.scss'
 
+// import context
+import { useUi } from "../../data/context/UiContext";
+
 // import components
+import Toast from '../../components/UI/Toast/Toast';
 import Sidebar from '../../components/Sidebar/Sidebar';
 
 function MainLayout(props) {
-
-  onMount(() => {
-  });
+  const { toast, setToast } = useUi();
 
   return (
     <div class={styles.Page}>
@@ -20,6 +20,10 @@ function MainLayout(props) {
       <main class={styles.Main}>
         {props.children}
       </main>
+
+      <Show when={toast().show}>
+        <Toast message={toast().message} />
+      </Show>
     </div>
   )
 }

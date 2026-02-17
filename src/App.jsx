@@ -1,4 +1,5 @@
 import { Router, Route } from "@solidjs/router";
+import { UiProvider } from "./data/context/UiContext";
 
 // import component
 import MainLayout from "./layouts/MainLayout/MainLayout";
@@ -11,11 +12,13 @@ import Operatori from "./routes/Operatori/Operatori";
 
 export default function App() {
   return (
-    <Router root={ MainLayout}>
-      <Route path="/" component={ Telefonate } />
-      <Route path="/contatti" component={ Contatti } />
-      <Route path="/pratiche" component={ Pratiche } />
-      <Route path="/operatori" component={ Operatori } />
-    </Router>
+    <UiProvider>
+      <Router root={MainLayout}>
+        <Route path="/" component={Telefonate} />
+        <Route path="/contatti" component={Contatti} />
+        <Route path="/pratiche" component={Pratiche} />
+        <Route path="/operatori" component={Operatori} />
+      </Router>
+    </UiProvider>
   );
 }

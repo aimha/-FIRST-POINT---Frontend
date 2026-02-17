@@ -1,0 +1,31 @@
+// IMPORTS
+
+@use '../../../styles/_variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+.Toast {
+  position: absolute;
+  background-color: var.$secondary500;
+  padding: var.$spc-md var.$spc-xl;
+  color: var.$neutral50;
+  font-size: var.$font-size-body;
+  font-weight: var.$font-weight-bold;
+  bottom: var.$spc-lg;
+  right: var.$spc-lg;
+  border-radius: var.$spc-sm;
+
+  animation: toastAppear 0.3s var.$bezier-celebratoryEaseOut;
+}
+
+@keyframes toastAppear {
+  from {
+    opacity: 0;
+    transform: translateY(var.$spc-md);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -13,7 +13,7 @@
 
 .Contact__heading {
   font-weight: var.$font-weight-bold;
-  border-bottom: 1px solid var.$primary500;
+  border-bottom: 1px solid var.$secondary500;
   padding-bottom: var.$spc-sm;
   margin-bottom: var.$spc-lg;
 
@@ -23,7 +23,7 @@
   }
 
   &--subtitle {
-    color: var.$primary500;
+    color: var.$secondary500;
   }
 }
 

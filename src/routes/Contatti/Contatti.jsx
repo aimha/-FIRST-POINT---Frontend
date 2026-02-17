@@ -1,4 +1,7 @@
-import { onMount, createResource, createSignal } from 'solid-js';
+import { createResource, createSignal } from 'solid-js';
+
+// import context
+import { useUi } from "../../data/context/UiContext";
 
 // import page components
 import Table from '../../components/Table/Table';
@@ -24,6 +27,10 @@ const fetchContacts = async () => {
 };
 
 function Contatti() {
+  // handle toast notification
+  const { showToast } = useUi();
+
+  // root element in the page
   let root;
 
   // Table configuration
@@ -38,24 +45,28 @@ function Contatti() {
   const [selectedContact, setSelectedContact] = createSignal(null);
 
   const [modalMode, setModalMode] = createSignal("add");
-
   const [showModal, setShowModal] = createSignal(false);
 
-  // handle modal
+  // handle add contact modal
   const openAddModal = () => {
     setModalMode("add");
     setSelectedContact(null);
     setShowModal(true);
   };
 
+  // handle contact details modal
   const openDetailModal = (contact) => {
     setModalMode("detail");
     setSelectedContact(contact);
     setShowModal(true);
   }
 
-  onMount(() => {
-  })
+  // handle contact delete
+  const deleteContact = async (id) => {
+    console.log(`%c ID: ${id} - CANCELLATO `);
+    setShowModal(false);
+    showToast("Contatto eliminato con successo");
+  };
 
   return (
     <>
@@ -105,14 +116,23 @@ function Contatti() {
         title={modalMode() === "add" ? "Aggiungi Contatto" : "Dettaglio Contatto"}>
         <Show
           when={modalMode() === "detail"}
-          fallback={<AddContactForm onClose={() => setShowModal(false)} />}
+          fallback={<AddContactForm 
+            onClose={() => setShowModal(false)}
+            onSuccess={() => {
+              setShowModal(false);
+              showToast("Contatto inserito con successo");
+            }}
+          />}
         >
           <ContactDetail
             data={selectedContact()}
             onClose={() => setShowModal(false)}
+            onDelete={(id) => deleteContact(id)}
           />
         </Show>
       </Modal>
+
+
     </>
   );
 }
