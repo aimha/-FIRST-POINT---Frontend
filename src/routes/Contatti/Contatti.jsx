@@ -68,6 +68,12 @@ function Contatti() {
     showToast("Contatto eliminato con successo");
   };
 
+  // handle save for edited contact data
+  const handleSave = (id) => {
+    console.log(`%c ID: ${id} - MODIFICATO`);
+    showToast("Modifiche salvate con successo");
+  };
+
   return (
     <>
       <div ref={root} class={`${styles.Container}`}>
@@ -128,6 +134,7 @@ function Contatti() {
             data={selectedContact()}
             onClose={() => setShowModal(false)}
             onDelete={(id) => deleteContact(id)}
+            onSave={(id) => handleSave(id)}
           />
         </Show>
       </Modal>

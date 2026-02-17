@@ -14,6 +14,7 @@
   bottom: var.$spc-lg;
   right: var.$spc-lg;
   border-radius: var.$spc-sm;
+  z-index: 99999;
 
   animation: toastAppear 0.3s var.$bezier-celebratoryEaseOut;
 }

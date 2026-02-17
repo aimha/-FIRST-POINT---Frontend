@@ -2,6 +2,7 @@ import { createSignal } from "solid-js";
 
 // import page components
 import FormButton from '../../../components/UI/Button/FormButton';
+import FormGroup from "../../../components/UI/Input/FormGroup";
 
 // import style
 import styles from './ContactDetails.module.scss';
@@ -13,6 +14,16 @@ function ContactDetail(props) {
   // pass props to editing form
   const [formData, setFormData] = createSignal({ ...props.data });
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData(), [name]: value });
+  };
+
+  const onSaveInternal = () => {
+    props.onSave(props.data.id);
+    setIsEditing(false);
+  };
+
   return (
     <>
       <div class={styles.Contact__heading}>
@@ -22,73 +33,181 @@ function ContactDetail(props) {
       <div class={styles.Contact__row}>
         <div class={styles.Contact__cell}>
           <span>Azienda</span>
-          <p>{props.data.azienda || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.azienda || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="azienda" value={formData().azienda} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Dipartimento</span>
-          <p>{props.data.dipartimento || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.dipartimento || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="dipartimento" value={formData().dipartimento} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Email</span>
-          <p>{props.data.email || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.email || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="email" value={formData().email} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
       </div>
+
       <div class={styles.Contact__row}>
         <div class={styles.Contact__cell}>
           <span>Cellulare</span>
-          <p>{props.data.cellulare || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.cellulare || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="cellulare" value={formData().cellulare} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Cellulare 2</span>
-          <p>{props.data.cellulare2 || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.cellulare2 || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="cellulare2" value={formData().cellulare2} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Casa</span>
-          <p>{props.data.casa || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.case || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="casa" value={formData().casa} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
       </div>
+
       <div class={styles.Contact__row}>
         <div class={styles.Contact__cell}>
           <span>Ufficio</span>
-          <p>{props.data.ufficio || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.ufficio || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="ufficio" value={formData().ufficio} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Ufficio 2</span>
-          <p>{props.data.ufficio2 || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.cellulare2 || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="ufficio2" value={formData().ufficio2} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
+
         <div class={styles.Contact__cell}>
           <span>Fax</span>
-          <p>{props.data.fax || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.fax || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <input type="text" name="fax" value={formData().fax} onInput={handleInputChange} />
+            </Match>
+          </Switch>
         </div>
       </div>
-      <div class={styles.Contact__row}>
+
+
+      <div class={`${styles.Contact__row} ${styles['Contact__row--last']}`}>
         <div class={styles.Contact__cell}>
           <span>Note</span>
-          <p>{props.data.altro || "---"}</p>
+          <Switch>
+            <Match when={!isEditing()}>
+              <p>{props.data.altro || "---"}</p>
+            </Match>
+            <Match when={isEditing()}>
+              <textarea
+                name="altro"
+                value={formData().altro}
+                onInput={handleInputChange}
+                rows="3"
+                class={styles.TextareaCustom} // Usa una classe specifica per gestire il resize e il font
+              />
+            </Match>
+          </Switch>
         </div>
       </div>
 
       <div class={styles.ModalActions}>
-        <FormButton
-          title="Annulla"
-          type="button"
-          icon="close"
-          variant="Cancel"
-          onClick={props.onClose}>
-        </FormButton>
-        <FormButton
-          title="Elimina Contatto"
-          type="button"
-          icon="delete"
-          variant="Delete"
-          onClick={() => props.onDelete(props.data.id)}>
-        </FormButton>
-        <FormButton
-          title="Modifica Contatto"
-          type="button"
-          icon="edit"
-          variant="Submit">
-        </FormButton>
+        <Switch>
+          <Match when={!isEditing()}>
+            <FormButton
+              title="Annulla"
+              type="button"
+              icon="close"
+              variant="Cancel"
+              onClick={props.onClose}>
+            </FormButton>
+            <FormButton
+              title="Elimina Contatto"
+              type="button"
+              icon="delete"
+              variant="Delete"
+              onClick={() => props.onDelete(props.data.id)}>
+            </FormButton>
+            <FormButton
+              title="Modifica Contatto"
+              type="button"
+              icon="edit"
+              variant="Submit"
+              onClick={() => setIsEditing(true)}>
+            </FormButton>
+          </Match>
+          <Match when={isEditing()}>
+            <FormButton
+              title="Annulla"
+              type="button"
+              icon="close"
+              variant="Cancel"
+              onClick={() => setIsEditing(false)}>
+            </FormButton>
+            <FormButton
+              title="Salva Modifiche"
+              type="button"
+              icon="edit"
+              variant="Submit"
+              onClick={onSaveInternal}>
+            </FormButton>
+
+          </Match>
+        </Switch >
       </div>
     </>
   );
