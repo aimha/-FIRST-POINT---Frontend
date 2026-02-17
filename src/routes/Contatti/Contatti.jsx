@@ -72,7 +72,10 @@ function Contatti() {
                 {contact.email}
               </Cell>
               <Cell class={styles['Table__cell--phone']}>
-                {contact.cellulare} <span>[+{extraCount}]</span>
+                {contact.cellulare}&nbsp; 
+                <Show when={extraCount > 0}>
+                  <span>[+{extraCount}]</span>
+                </Show>
               </Cell>
               <Cell class={styles['Table__cell--dossier']}>
                 {Math.floor(Math.random() * 10) + 1}
