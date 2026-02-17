@@ -48,7 +48,7 @@ function Operatori() {
     <>
       <div ref={root} class={`${styles.Container}`}>
         <PageHeader title="Operatori">
-          <HeadingButton title="Nuova Operatore" onClick={handleAddContact}></HeadingButton>
+          <HeadingButton title="Nuovo Operatore" onClick={handleAddContact}></HeadingButton>
         </PageHeader>
       </div>
 
