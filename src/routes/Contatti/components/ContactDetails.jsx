@@ -1,3 +1,5 @@
+import { createSignal } from "solid-js";
+
 // import page components
 import FormButton from '../../../components/UI/Button/FormButton';
 
@@ -5,21 +7,33 @@ import FormButton from '../../../components/UI/Button/FormButton';
 import styles from './ContactDetails.module.scss';
 
 function ContactDetail(props) {
+  // editing signal
+  const [isEditing, setIsEditing] = createSignal(false);
+
+  // pass props to editing form
+  const [formData, setFormData] = createSignal({ ...props.data });
+
   return (
     <>
       <div class={styles.Contact__heading}>
         <h2>{props.data?.nome} {props.data?.cognome}</h2>
-        <div class={styles['Contact__heading--subtitle']}>
-          <span>{props.data?.azienda || <i>-- campo vuoto --</i>}</span>
-          <span>{props.data?.dipartimento || <i>-- campo vuoto --</i>}</span>
-        </div>
       </div >
 
       <div class={styles.Contact__row}>
         <div class={styles.Contact__cell}>
+          <span>Azienda</span>
+          <p>{props.data.azienda || "---"}</p>
+        </div>
+        <div class={styles.Contact__cell}>
+          <span>Dipartimento</span>
+          <p>{props.data.dipartimento || "---"}</p>
+        </div>
+        <div class={styles.Contact__cell}>
           <span>Email</span>
           <p>{props.data.email || "---"}</p>
         </div>
+      </div>
+      <div class={styles.Contact__row}>
         <div class={styles.Contact__cell}>
           <span>Cellulare</span>
           <p>{props.data.cellulare || "---"}</p>
