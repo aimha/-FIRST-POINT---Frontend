@@ -1,0 +1,53 @@
+// IMPORTS
+
+@use '../../../styles/variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+.Contact__heading--subtitle,
+.Contact__row {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  align-items: baseline;
+}
+
+.Contact__heading {
+  font-weight: var.$font-weight-bold;
+  border-bottom: 1px solid var.$primary500;
+  padding-bottom: var.$spc-sm;
+  margin-bottom: var.$spc-lg;
+
+  h2 {
+    font-size: var.$font-size-lg;
+    margin-bottom: var.$spc-sm;
+  }
+
+  &--subtitle {
+    color: var.$primary500;
+  }
+}
+
+.Contact__row {
+  padding-bottom: var.$spc-lg;
+
+  .Contact__cell {
+    span {
+      color: var.$secondary500;
+      font-size: var.$font-size-sm;
+      font-weight: var.$font-weight-bold;
+      letter-spacing: 1px;
+    }
+  }
+
+  &:last-child {
+    grid-template-columns: 100%;
+  }
+}
+
+.ModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: var.$spc-md;
+  margin-top: var.$spc-sm;
+}

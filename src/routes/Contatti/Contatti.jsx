@@ -5,6 +5,7 @@ import Table from '../../components/Table/Table';
 import Cell from '../../components/Table/components/Cell';
 import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './components/AddContactForm';
+import ContactDetail from './components/ContactDetails';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 
@@ -34,13 +35,24 @@ function Contatti() {
 
   // resources / signals
   const [contacts] = createResource(fetchContacts);
+  const [selectedContact, setSelectedContact] = createSignal(null);
+
+  const [modalMode, setModalMode] = createSignal("add");
+
   const [showModal, setShowModal] = createSignal(false);
 
   // handle modal
-  const handleAddContact = (e) => {
-    e.preventDefault();
+  const openAddModal = () => {
+    setModalMode("add");
+    setSelectedContact(null);
     setShowModal(true);
   };
+
+  const openDetailModal = (contact) => {
+    setModalMode("detail");
+    setSelectedContact(contact);
+    setShowModal(true);
+  }
 
   onMount(() => {
   })
@@ -49,7 +61,7 @@ function Contatti() {
     <>
       <div ref={root} class={`${styles.Container}`}>
         <PageHeader title="Contatti">
-          <HeadingButton title="Nuovo Contatto" onClick={handleAddContact}></HeadingButton>
+          <HeadingButton title="Nuovo Contatto" onClick={openAddModal}></HeadingButton>
         </PageHeader>
 
         <Table
@@ -61,35 +73,45 @@ function Contatti() {
             const extraCount = optionalFields.filter(field => contact[field] && contact[field].trim() !== "" && contact[field] !== "-").length;
 
             return (
-            <>
-              <Cell class={styles['Table__cell--name']}>
-                {contact.nome} {contact.cognome}
-              </Cell>
-              <Cell class={styles['Table__cell--company']}>
-                {contact.azienda}
-              </Cell>
-              <Cell class={styles['Table__cell--email']}>
-                {contact.email}
-              </Cell>
-              <Cell class={styles['Table__cell--phone']}>
-                {contact.cellulare}&nbsp; 
-                <Show when={extraCount > 0}>
-                  <span>[+{extraCount}]</span>
-                </Show>
-              </Cell>
-              <Cell class={styles['Table__cell--dossier']}>
-                {Math.floor(Math.random() * 10) + 1}
-              </Cell>
-            </>
-            )}}
+              <>
+                <Cell class={styles['Table__cell--name']}>
+                  {contact.nome} {contact.cognome}
+                </Cell>
+                <Cell class={styles['Table__cell--company']}>
+                  {contact.azienda}
+                </Cell>
+                <Cell class={styles['Table__cell--email']}>
+                  {contact.email}
+                </Cell>
+                <Cell class={styles['Table__cell--phone']}>
+                  {contact.cellulare}&nbsp;
+                  <Show when={extraCount > 0}>
+                    <span>[+{extraCount}]</span>
+                  </Show>
+                </Cell>
+                <Cell class={styles['Table__cell--dossier']}>
+                  {Math.floor(Math.random() * 10) + 1}
+                </Cell>
+              </>
+            )
+          }}
+          onRowClick={openDetailModal}
         />
       </div>
 
       <Modal
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
-        title="Aggiungi nuovo contatto">
-        <AddContactForm onClose={() => setShowModal(false)} />
+        title={modalMode() === "add" ? "Aggiungi Contatto" : "Dettaglio Contatto"}>
+        <Show
+          when={modalMode() === "detail"}
+          fallback={<AddContactForm onClose={() => setShowModal(false)} />}
+        >
+          <ContactDetail
+            data={selectedContact()}
+            onClose={() => setShowModal(false)}
+          />
+        </Show>
       </Modal>
     </>
   );

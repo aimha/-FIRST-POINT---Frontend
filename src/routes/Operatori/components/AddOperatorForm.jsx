@@ -52,14 +52,14 @@ function AddOperatorForm(props) {
             title="Annulla"
             type="button"
             icon="close"
-            variant="Secondary"
+            variant="Cancel"
             onClick={props.onClose}>
           </FormButton>
           <FormButton
-            title="Salva Contatto"
+            title="Salva Operatore"
             type="submit"
             icon="check"
-            variant="Primary">
+            variant="Submit">
           </FormButton>
         </div>
       </form>

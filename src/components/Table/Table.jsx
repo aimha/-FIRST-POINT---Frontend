@@ -10,17 +10,17 @@ function TableBis(props) {
 
   return (
     <ul class={styles.Table} >
-      {/* Header dinamico */}
+      {/* Header */}
       <li class={styles.Table__heading} style={{ "grid-template-columns": props.gridConfig }}>
         <For each={props.columns}>
           {(col) => <div>{col.label}</div>}
         </For>
       </li>
 
-      {/* Righe dinamiche tramite children */}
+      {/* Righe */}
       <For each={props.data}>
         {(item) => (
-          <li class={styles.Table__row} style={{ "grid-template-columns": props.gridConfig }}>
+          <li class={styles.Table__row} style={{ "grid-template-columns": props.gridConfig }} onClick={() => props.onRowClick?.(item)}>
             {props.renderRow(item)}
           </li>
         )}

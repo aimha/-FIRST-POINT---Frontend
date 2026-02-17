@@ -73,14 +73,14 @@ function AddContactForm(props) {
             title="Annulla"
             type="button"
             icon="close"
-            variant="Secondary"
+            variant="Cancel"
             onClick={props.onClose}>
           </FormButton>
           <FormButton
             title="Salva Contatto"
             type="submit"
             icon="check"
-            variant="Primary">
+            variant="Submit">
           </FormButton>
         </div>
       </form>
