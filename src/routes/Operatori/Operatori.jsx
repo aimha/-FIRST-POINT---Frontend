@@ -1,12 +1,15 @@
-import { onMount, createResource, createSignal } from 'solid-js';
+import { createResource, createSignal, Switch } from 'solid-js';
+
+// import context
+import { useUi } from "../../data/context/UiContext";
 
 // import page components
-import Table from '../../components/Table/Table';
+import AddOperatorForm from './components/AddOperatorForm';
 import Cell from '../../components/Table/components/Cell';
-import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
 import Modal from '../../components/UI/Modal/Modal';
-import AddOperatorForm from './components/AddOperatorForm';
+import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import Table from '../../components/Table/Table';
 
 // import style
 import styles from './Operatori.module.scss';
@@ -23,8 +26,12 @@ const fetchOperators = async () => {
 };
 
 function Operatori() {
+  // handle toast notification
+  const { showToast } = useUi();
+
+  // root element in the page
   let root;
-  
+
   // Table configuration
   const columns = [
     { label: "Nome Cognome" }, { label: "Email" }, { label: "Roulo" }, { label: "Interno" }
@@ -33,22 +40,43 @@ function Operatori() {
 
   // resources / signals
   const [operators] = createResource(fetchOperators);
+  const [selectedOperator, setSelectedOperator] = createSignal(null);
+
+  const [modalMode, setModalMode] = createSignal("add");
   const [showModal, setShowModal] = createSignal(false);
 
-  // handle modal
-  const handleAddContact = (e) => {
-    e.preventDefault();
+  // handle add operator modal
+  const openAddModal = () => {
+    setModalMode("add");
+    setSelectedOperator(null);
     setShowModal(true);
   };
 
-  onMount(() => {
-  })
+  // handle contact details modal
+  const openDetailModal = (contact) => {
+    setModalMode("detail");
+    setSelectedContact(contact);
+    setShowModal(true);
+  }
+
+  // handle contact delete
+  const deleteContact = async (id) => {
+    console.log(`%c ID: ${id} - CANCELLATO `);
+    setShowModal(false);
+    showToast("Contatto eliminato con successo");
+  };
+
+  // handle save for edited contact data
+  const handleSave = (id) => {
+    console.log(`%c ID: ${id} - MODIFICATO`);
+    showToast("Modifiche salvate con successo");
+  };
 
   return (
     <>
       <div ref={root} class={`${styles.Container}`}>
         <PageHeader title="Operatori">
-          <HeadingButton title="Nuovo Operatore" onClick={handleAddContact}></HeadingButton>
+          <HeadingButton title="Nuovo Operatore" onClick={openAddModal}></HeadingButton>
         </PageHeader>
       </div>
 
@@ -79,8 +107,20 @@ function Operatori() {
       <Modal
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
-        title="Aggiungi nuovo operatore">
-        <AddOperatorForm onClose={() => setShowModal(false)} />
+        title={modalMode() === "add" ? "Aggiungi Operatore" : "Dettaglio Operatore"}>
+        <Switch>
+          <Match when={modalMode() === "add"}>
+            <AddOperatorForm
+              onClose={() => setShowModal(false)}
+              onSuccess={() => {
+                setShowModal(false);
+                showToast("Contatto inserito con successo");
+              }}
+            />
+          </Match>
+          <Match when={modalMode() === "detail"}>
+          </Match>
+        </Switch>
       </Modal>
     </>
   );

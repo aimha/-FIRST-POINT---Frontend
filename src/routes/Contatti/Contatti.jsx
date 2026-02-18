@@ -1,16 +1,16 @@
-import { createResource, createSignal } from 'solid-js';
+import { createResource, createSignal, Switch } from 'solid-js';
 
 // import context
 import { useUi } from "../../data/context/UiContext";
 
 // import page components
-import Table from '../../components/Table/Table';
-import Cell from '../../components/Table/components/Cell';
-import Modal from '../../components/UI/Modal/Modal';
 import AddContactForm from './components/AddContactForm';
+import Cell from '../../components/Table/components/Cell';
 import ContactDetail from './components/ContactDetails';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
+import Modal from '../../components/UI/Modal/Modal';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import Table from '../../components/Table/Table';
 
 // import style
 import styles from './Contatti.module.scss';
@@ -120,26 +120,26 @@ function Contatti() {
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
         title={modalMode() === "add" ? "Aggiungi Contatto" : "Dettaglio Contatto"}>
-        <Show
-          when={modalMode() === "detail"}
-          fallback={<AddContactForm 
-            onClose={() => setShowModal(false)}
-            onSuccess={() => {
-              setShowModal(false);
-              showToast("Contatto inserito con successo");
-            }}
-          />}
-        >
-          <ContactDetail
-            data={selectedContact()}
-            onClose={() => setShowModal(false)}
-            onDelete={(id) => deleteContact(id)}
-            onSave={(id) => handleSave(id)}
-          />
-        </Show>
+        <Switch>
+          <Match when={modalMode() === "add"}>
+            <AddContactForm
+              onClose={() => setShowModal(false)}
+              onSuccess={() => {
+                setShowModal(false);
+                showToast("Contatto inserito con successo");
+              }}
+            />
+          </Match>
+          <Match when={modalMode() === "detail"}>
+            <ContactDetail
+              data={selectedContact()}
+              onClose={() => setShowModal(false)}
+              onDelete={(id) => deleteContact(id)}
+              onSave={(id) => handleSave(id)}
+            />
+          </Match>
+        </Switch>
       </Modal>
-
-
     </>
   );
 }

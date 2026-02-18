@@ -2,7 +2,6 @@ import { createSignal } from "solid-js";
 
 // import page components
 import FormButton from '../../../components/UI/Button/FormButton';
-import FormGroup from "../../../components/UI/Input/FormGroup";
 
 // import style
 import styles from './ContactDetails.module.scss';
