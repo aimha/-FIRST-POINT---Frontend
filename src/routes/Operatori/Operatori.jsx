@@ -8,6 +8,7 @@ import AddOperatorForm from './components/AddOperatorForm';
 import Cell from '../../components/Table/components/Cell';
 import HeadingButton from '../../components/UI/Button/HeadingButton';
 import Modal from '../../components/UI/Modal/Modal';
+import OperatorDetail from './components/OperatorDetail';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import Table from '../../components/Table/Table';
 
@@ -53,9 +54,9 @@ function Operatori() {
   };
 
   // handle contact details modal
-  const openDetailModal = (contact) => {
+  const openDetailModal = (operator) => {
     setModalMode("detail");
-    setSelectedContact(contact);
+    setSelectedOperator(operator);
     setShowModal(true);
   }
 
@@ -102,6 +103,7 @@ function Operatori() {
             </>
           )
         }}
+        onRowClick={openDetailModal}
       />
 
       <Modal
@@ -119,6 +121,12 @@ function Operatori() {
             />
           </Match>
           <Match when={modalMode() === "detail"}>
+            <OperatorDetail
+              data={selectedOperator()}
+              onClose={() => setShowModal(false)}
+              onDelete={(id) => deleteContact(id)}
+              onSave={(id) => handleSave(id)}
+            />
           </Match>
         </Switch>
       </Modal>
