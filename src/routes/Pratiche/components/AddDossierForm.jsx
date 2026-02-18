@@ -19,7 +19,10 @@ function AddDossierForm(props) {
     console.log("Payload:", data);
     console.log("------------------------------------------");
 
-    props.onClose();
+    if (props.onSuccess) {
+      props.onSuccess();
+    }
+
   };
 
   return (

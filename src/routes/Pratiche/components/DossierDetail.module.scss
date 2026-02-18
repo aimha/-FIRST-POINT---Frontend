@@ -1,0 +1,84 @@
+// IMPORTS
+
+@use '../../../styles/variables.module' as var;
+@use '../../../styles/typography.module' as ty;
+
+// COMPONENT STYLES
+.Dossier__heading--subtitle,
+.Dossier__row {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  align-items: baseline;
+}
+
+.Dossier__heading {
+  font-weight: var.$font-weight-bold;
+  border-bottom: 1px solid var.$secondary500;
+  padding-bottom: var.$spc-sm;
+  margin-bottom: var.$spc-lg;
+
+  h2 {
+    font-size: var.$font-size-lg;
+    margin-bottom: var.$spc-sm;
+  }
+}
+
+.Dossier__row {
+  padding-bottom: var.$spc-lg;
+
+  .Dossier__cell {
+    span {
+      display: block;
+      color: var.$secondary500;
+      font-size: var.$font-size-sm;
+      font-weight: var.$font-weight-bold;
+      letter-spacing: 1px;
+    }
+
+    p,
+    input,
+    select {
+      font-size: var.$font-size-body;
+      line-height: var.$line-height-tight;
+      padding: var.$spc-sm;
+    }
+
+    p {
+      border: 1px solid transparent;
+    }
+
+    input,
+    select {
+      width: 75%;
+      border: 1px solid var.$neutral200;
+      border-radius: var.$spc-sm;
+
+      &:focus {
+        outline: none;
+        border-color: var.$secondary500;
+      }
+    }
+
+    select {
+      background-color: var.$neutral50;
+    }
+  }
+
+  &--last {
+    .Dossier__cell {
+      grid-column: span 4;
+
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: var.$spc-md;
+  margin-top: var.$spc-sm;
+}

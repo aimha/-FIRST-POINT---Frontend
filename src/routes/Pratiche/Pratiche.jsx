@@ -1,20 +1,24 @@
-import { onMount, createResource, createSignal } from 'solid-js';
+import { createResource, createSignal, Switch } from 'solid-js';
+
+// import context
+import { useUi } from "../../data/context/UiContext";
 
 // import page components
-import Table from '../../components/Table/Table';
-import Cell from '../../components/Table/components/Cell';
-import Icon from '../../components/UI/Icon/Icon';
-import PageHeader from '../../components/UI/PageHeader/PageHeader';
-import HeadingButton from '../../components/UI/Button/HeadingButton';
-import Modal from '../../components/UI/Modal/Modal';
 import AddDossierForm from './components/AddDossierForm';
+import Cell from '../../components/Table/components/Cell';
+import DossierDetail from './components/DossierDetail';
+import HeadingButton from '../../components/UI/Button/HeadingButton';
+import Icon from '../../components/UI/Icon/Icon';
+import Modal from '../../components/UI/Modal/Modal';
+import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import Table from '../../components/Table/Table';
 
 // import style
 import styles from './Pratiche.module.scss';
 
 // get json from endpoint
 const fetchDossier = async () => {
-  const GIST_URL = "https://gist.githubusercontent.com/aimha/f7bfb8a723f2f0a00447a78c5ad594f5/raw/pratiche.json";
+  const GIST_URL = "https://gist.githubusercontent.com/aimha/49b07adc740df828aa07cccde287f0ba/raw/pratiche.json";
 
   const response = await fetch(GIST_URL);
   if (!response.ok) {
@@ -24,6 +28,10 @@ const fetchDossier = async () => {
 };
 
 function Pratiche() {
+  // handle toast notification
+  const { showToast } = useUi();
+
+  // root element in the page
   let root;
 
   // Table configuration
@@ -34,22 +42,43 @@ function Pratiche() {
 
   // resources / signals
   const [dossier] = createResource(fetchDossier);
+  const [selectedDossier, setSelectedDossier] = createSignal(null);
+
+  const [modalMode, setModalMode] = createSignal("add");
   const [showModal, setShowModal] = createSignal(false);
 
-  // handle modal
-  const handleAddContact = (e) => {
-    e.preventDefault();
+  // handle add operator modal
+  const openAddModal = () => {
+    setModalMode("add");
+    setSelectedDossier(null);
     setShowModal(true);
   };
 
-  onMount(() => {
-  })
+  // handle contact details modal
+  const openDetailModal = (dossier) => {
+    setModalMode("detail");
+    setSelectedDossier(dossier);
+    setShowModal(true);
+  }
+
+  // handle contact delete
+  const deleteDossier = async (id) => {
+    console.log(`%c ID: ${id} - CANCELLATO `);
+    setShowModal(false);
+    showToast("Pratica eliminata con successo");
+  };
+
+  // handle save for edited contact data
+  const handleSave = (id) => {
+    console.log(`%c ID: ${id} - MODIFICATO`);
+    showToast("Modifiche salvate con successo");
+  };
 
   return (
     <>
       <div ref={root} class={`${styles.Container}`}>
         <PageHeader title="Pratiche">
-          <HeadingButton title="Nuova Pratica" onClick={handleAddContact}></HeadingButton>
+          <HeadingButton title="Nuova Pratica" onClick={openAddModal}></HeadingButton>
         </PageHeader>
       </div>
 
@@ -73,7 +102,7 @@ function Pratiche() {
                 </span>
               </Cell>
               <Cell class={styles['Table__cell--dates']}>
-                {file.data_apertura} - 
+                {file.data_apertura} -
                 {file.data_chiusura && file.data_chiusura !== "null" && file.data_chiusura.trim() !== ""
                   ? file.data_chiusura
                   : <span>[In corso...]</span>
@@ -86,13 +115,32 @@ function Pratiche() {
             </>
           )
         }}
+        onRowClick={openDetailModal}
       />
 
       <Modal
         isOpen={showModal()}
         onClose={() => setShowModal(false)}
-        title="Aggiungi nuova pratica">
-        <AddDossierForm onClose={() => setShowModal(false)} />
+        title={modalMode() === "add" ? "Aggiungi Pratica" : "Dettaglio Pratica"}>
+        <Switch>
+          <Match when={modalMode() === "add"}>
+            <AddDossierForm
+              onClose={() => setShowModal(false)}
+              onSuccess={() => {
+                setShowModal(false);
+                showToast("Pratica inserita con successo");
+              }}
+            />
+          </Match>
+          <Match when={modalMode() === "detail"}>
+            <DossierDetail
+              data={selectedDossier()}
+              onClose={() => setShowModal(false)}
+              onDelete={(id) => deleteDossier(id)}
+              onSave={(id) => handleSave(id)}
+            />
+          </Match>
+        </Switch>
       </Modal>
     </>
   );
