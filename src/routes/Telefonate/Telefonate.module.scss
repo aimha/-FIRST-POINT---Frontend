@@ -1,11 +1,13 @@
 // IMPORTS
 
-@use'../../styles/typography.module' as typography;
-@use'../../styles/variables.module' as var;
+@use '../../styles/variables.module' as var;
+@use '../../styles/typography.module' as ty;
 
-// STYLES
+// COMPONENT STYLES
 
-.Container {
-  overflow-x: clip;
+.Table__cell {
+  &--name,
+  &--intern {
+    font-weight: var.$font-weight-bold;
+  }
 }
-
