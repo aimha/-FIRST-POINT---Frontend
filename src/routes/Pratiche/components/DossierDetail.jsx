@@ -26,8 +26,15 @@ function DossierDetail(props) {
   return (
     <>
       <div class={styles.Dossier__heading}>
-        <h2>{props.data.titolo}</h2>
-      </div >
+        <Switch>
+          <Match when={!isEditing()}>
+            <h2>{props.data.titolo}</h2>
+          </Match>
+          <Match when={isEditing()}>
+            <input type="Text" name="titolo" value={formData().titolo} onInput={handleInputChange} />
+          </Match>
+        </Switch>
+      </div>
 
       <div class={styles.Dossier__row}>
         <div class={styles.Dossier__cell}>

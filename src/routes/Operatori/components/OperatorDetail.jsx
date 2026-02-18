@@ -26,8 +26,19 @@ function OperatorDetail(props) {
   return (
     <>
       <div class={styles.Operator__heading}>
-        <h2>{props.data?.nome} {props.data?.cognome}</h2>
-      </div >
+        <Switch>
+          <Match when={!isEditing()}>
+            <h2>{props.data?.nome} {props.data?.cognome}</h2>
+          </Match>
+          <Match when={isEditing()}>
+            <div class={styles['Operator__heading--row']}>
+              <input type="Text" name="nome" value={formData().nome} onInput={handleInputChange} />
+              <input type="Text" name="cognome" value={formData().cognome} onInput={handleInputChange} />
+            </div>
+          </Match>
+        </Switch>
+      </div>
+
 
       <div class={styles.Operator__row}>
         <div class={styles.Operator__cell}>

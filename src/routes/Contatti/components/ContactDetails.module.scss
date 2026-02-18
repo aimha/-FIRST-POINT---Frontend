@@ -12,14 +12,32 @@
 }
 
 .Contact__heading {
-  font-weight: var.$font-weight-bold;
   border-bottom: 1px solid var.$secondary500;
   padding-bottom: var.$spc-sm;
   margin-bottom: var.$spc-lg;
 
+  input,
   h2 {
+    font-weight: var.$font-weight-bold;
     font-size: var.$font-size-lg;
     margin-bottom: var.$spc-sm;
+    padding: var.$spc-sm;
+  }
+
+  &--row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    input {
+      width: 90%;
+      border: 1px solid var.$neutral200;
+      border-radius: var.$spc-sm;
+
+      &:focus {
+        outline: none;
+        border-color: var.$secondary500;
+      }
+    }
   }
 }
 
