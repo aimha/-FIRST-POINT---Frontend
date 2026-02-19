@@ -6,8 +6,34 @@
 // COMPONENT STYLES
 
 .Table__cell {
-  &--name,
-  &--intern {
+
+  &--phones,
+  &--date,
+  &--subject,
+  &--duration,
+  &--direction,
+  &--status,
+  &--billable {
+    font-size: var.$font-size-sm;
+  }
+
+  &--subject {
     font-weight: var.$font-weight-bold;
+  }
+
+  &--direction {
+    color: var.$error500;
+
+    &Outbound {
+      color: var.$success500;
+    }
+  }
+  
+  &--billable {
+    color: var.$error500;
+
+    &Active {
+      color: var.$success500;
+    }
   }
 }
