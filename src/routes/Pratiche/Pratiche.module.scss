@@ -10,7 +10,8 @@
     font-weight: var.$font-weight-bold;
   }
 
-  &--desc {
+  &--desc,
+  &--dates {
     font-size: var.$font-size-sm;
     padding-right: var.$spc-4xl;
   }
