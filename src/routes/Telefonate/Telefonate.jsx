@@ -7,6 +7,7 @@ import { useUi } from "../../data/context/UiContext";
 import { durationFormatter } from '../../lib/formatters';
 
 // import page components
+import CallDetail from './components/CallDetail';
 import Cell from '../../components/Table/components/Cell';
 import Icon from '../../components/UI/Icon/Icon';
 import Modal from '../../components/UI/Modal/Modal';
@@ -36,16 +37,21 @@ function Telefonate() {
 
   // Table configuration
   const columns = [
-    { label: "" }, { label: "Data / Ora" }, { label: "Da" }, { label: "A" }, { label: "Oggetto" }, { label: "Durata" }, { label: "Stato" }, { label: "Billable" }
+    { label: "" }, { label: "Data / Ora" }, { label: "Da" }, { label: "A" }, { label: "Oggetto" }, { label: "Durata" }, { label: "Stato" }, { label: "Fatturabile" }
   ];
-  const gridConfig = "2rem 12rem 10rem 10rem 1fr 6rem 8rem 4rem";
+  const gridConfig = "2rem 12rem 10rem 10rem 1fr 6rem 8rem 6rem";
 
   // resources / signals
   const [calls] = createResource(fetchCalls);
   const [selectedCall, setSelectedCall] = createSignal(null);
 
-  const [modalMode, setModalMode] = createSignal("add");
   const [showModal, setShowModal] = createSignal(false);
+
+  // handle contact details modal
+  const openDetailModal = (call) => {
+    setSelectedCall(call);
+    setShowModal(true);
+  }
 
   return (
     <div ref={root} class={`${styles.Container}`}>
@@ -110,8 +116,19 @@ function Telefonate() {
             </>
           )
         }}
+        onRowClick={openDetailModal}
       />
 
+      <Modal
+        isOpen={showModal()}
+        title={"Dettaglio Telefonata"}
+        data={selectedContact()}
+        onClose={() => setShowModal(false)}>
+        <CallDetail
+          data={selectedCall()}
+          onClose={() => setShowModal(false)}
+        />
+      </Modal>
     </div>
   );
 }

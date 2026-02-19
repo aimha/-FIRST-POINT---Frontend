@@ -31,6 +31,7 @@
   
   &--billable {
     color: var.$error500;
+    text-align: center;
 
     &Active {
       color: var.$success500;
