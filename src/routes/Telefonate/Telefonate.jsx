@@ -38,7 +38,7 @@ function Telefonate() {
   const columns = [
     { label: "" }, { label: "Data / Ora" }, { label: "Da" }, { label: "A" }, { label: "Oggetto" }, { label: "Durata" }, { label: "Stato" }, { label: "Billable" }
   ];
-  const gridConfig = "2rem 1fr 1fr 1fr 2fr .75fr 1fr 4rem";
+  const gridConfig = "2rem 10rem 8rem 8rem 1fr 6rem 8rem 4rem";
 
   // resources / signals
   const [calls] = createResource(fetchCalls);
