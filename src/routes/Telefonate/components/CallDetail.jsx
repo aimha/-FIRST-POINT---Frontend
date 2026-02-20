@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { createSignal, Switch } from "solid-js";
 
 // import utility functions
 import { durationFormatter } from '../../../lib/formatters';
@@ -10,6 +10,7 @@ import FormButton from '../../../components/UI/Button/FormButton';
 import styles from './CallDetails.module.scss';
 
 function CallDetail(props) {
+  const [showTranscript, setShowTranscript] = createSignal(false);
 
   return (
     <>
@@ -17,49 +18,76 @@ function CallDetail(props) {
         <h2>{props.data.oggetto}</h2>
       </div>
 
-      <div class={styles.Call__row}>
-        <div class={styles.Call__cell}>
-          <span>Data / Ora</span>
-          <p>{props.data.started_at}</p>
-        </div>
-        <div class={styles.Call__cell}>
-          <span>Effettuata da</span>
-          <p>{props.data.from_number}</p>
-        </div>
-        <div class={styles.Call__cell}>
-          <span>Ricevuta da</span>
-          <p>{props.data.to_number}</p>
-        </div>
-      </div>
+      <Switch>
+        <Match when={!showTranscript()}>
+          <div class={styles.Call__row}>
+            <div class={styles.Call__cell}>
+              <span>Data / Ora</span>
+              <p>{props.data.started_at}</p>
+            </div>
+            <div class={styles.Call__cell}>
+              <span>Effettuata da</span>
+              <p>{props.data.from_number}</p>
+            </div>
+            <div class={styles.Call__cell}>
+              <span>Ricevuta da</span>
+              <p>{props.data.to_number}</p>
+            </div>
+          </div>
 
-      <div class={styles.Call__row}>
-        <div class={styles.Call__cell}>
-          <span>Durata</span>
-          <p>{durationFormatter(props.data.durata_secondi)}</p>
-        </div>
-        <div class={styles.Call__cell}>
-          <span>Status</span>
-          <Switch>
-            <Match when={props.data.status}>
-              <p>Assegnata</p>
-            </Match>
-            <Match when={!props.data.status}>
-              <p>Da assegnare</p>
-            </Match>
-          </Switch>
-        </div>
-        <div class={styles.Call__cell}>
-          <span>Fatturabile</span>
-          <Switch>
-            <Match when={props.data.billable}>
-              <p>Fatturabile</p>
-            </Match>
-            <Match when={!props.data.billable}>
-              <p>Non Fatturabile</p>
-            </Match>
-          </Switch>
-        </div>
-      </div>
+          <div class={styles.Call__row}>
+            <div class={styles.Call__cell}>
+              <span>Durata</span>
+              <p>{durationFormatter(props.data.durata_secondi)}</p>
+            </div>
+            <div class={styles.Call__cell}>
+              <span>Status</span>
+              <Switch>
+                <Match when={props.data.status}>
+                  <p>Assegnata</p>
+                </Match>
+                <Match when={!props.data.status}>
+                  <p>Da assegnare</p>
+                </Match>
+              </Switch>
+            </div>
+            <div class={styles.Call__cell}>
+              <span>Fatturabile</span>
+              <Switch>
+                <Match when={props.data.billable}>
+                  <p>Fatturabile</p>
+                </Match>
+                <Match when={!props.data.billable}>
+                  <p>Non Fatturabile</p>
+                </Match>
+              </Switch>
+            </div>
+          </div>
+
+          <div class={styles.Call__summary}>
+            <span>Riassunto Telefonata</span>
+            <p>{props.data.riassunto}</p>
+            <button
+              onClick={() => setShowTranscript(true)}
+            >
+              Trascrizione completa
+            </button>
+          </div>
+        </Match>
+
+        <Match when={showTranscript()}>
+          <div class={styles.Call__transcription}>
+            <span>Trascrizione completa</span>
+            <p>{props.data.trascrizione}</p>
+            <button
+              onClick={() => setShowTranscript(false)}
+            >
+              Torna ai dettagli
+            </button>
+          </div>
+        </Match>
+      </Switch>
+
 
       <div class={styles.ModalActions}>
         <FormButton

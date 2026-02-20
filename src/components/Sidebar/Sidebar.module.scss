@@ -54,7 +54,6 @@
     &:hover {
       color: var.$neutral800;
       background: var.$secondary50;
-      transition: all 0.2s var.$bezier-productiveEaseOut;
     }
 
     &--active {
