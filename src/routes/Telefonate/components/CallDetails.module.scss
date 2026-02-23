@@ -12,38 +12,61 @@
 }
 
 .Call__heading {
-  border-bottom: 1px solid var.$secondary500;
   padding-bottom: var.$spc-sm;
-  margin-bottom: var.$spc-lg;
 
-  input,
   h2 {
     font-weight: var.$font-weight-bold;
     font-size: var.$font-size-lg;
     margin-bottom: var.$spc-sm;
-    padding: var.$spc-sm;
+    padding: var.$spc-sm 0;
   }
 
   &--row {
     display: grid;
     grid-template-columns: 50% 50%;
+  }
+}
 
-    input {
-      width: 90%;
-      border: 1px solid var.$neutral200;
-      border-radius: var.$spc-sm;
+.Tabs {
+  display: flex;
+  gap: var.$spc-xs;
+  border-bottom: 1px solid var.$neutral200;
+  margin-bottom: var.$spc-xl;
 
-      &:focus {
-        outline: none;
-        border-color: var.$secondary500;
-      }
+  li {
+    font-size: var.$font-size-sm;
+    line-height: var.$line-height-normal;
+    background-color: var.$neutral50;
+    padding: var.$spc-xs var.$spc-md;
+    border: 1px solid var.$neutral200;
+    border-bottom: none;
+    border-radius: var.$spc-xs var.$spc-xs 0 0;
+    cursor: pointer;
+
+    transition: all 0.2s var.$bezier-productiveEaseOut;
+
+    &:hover {
+      background-color: var.$secondary50;
+      color: var.$secondary500;
+    }
+  }
+
+  .Tab--active {
+    color: var.$neutral50;
+    background-color: var.$secondary500;
+
+    &:hover {
+      background-color: var.$secondary500;
+      color: var.$secondary50;
     }
   }
 }
 
+
 .Call__row {
   padding-bottom: var.$spc-lg;
 }
+
 .Call__transcription,
 .Call__summary,
 .Call__cell {
@@ -63,38 +86,16 @@
 }
 
 .Call__summary {
-  border-top: 1px solid var.$secondary500;
   margin-bottom: var.$spc-md;
-  padding: var.$spc-md 0;
+  padding: var.$spc-lg 0;
+  border-top: 1px solid var.$neutral200;
 
   p {
     padding: var.$spc-sm 0;
   }
 }
 
-.Call__summary,
 .Call__transcription {
-  button {
-    padding: var.$spc-xs var.$spc-sm;
-    background-color: var.$secondary50;
-    border-radius: var.$spc-sm;
-    color: var.$secondary500;
-    font-size: var.$font-size-xs;
-    font-weight: var.$font-weight-bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    
-    transition: all 0.2s var.$bezier-productiveEaseOut;
-
-    &:hover {
-      background-color: var.$secondary500;
-      color: var.$neutral50;
-    }
-  }
-}
-
-.Call__transcription {
-  font-size: var.$font-size-sm;
   padding: var.$spc-sm 0;
   margin-bottom: var.$spc-xl;
 
@@ -104,7 +105,6 @@
   }
 
   p {
-    font-size: var.$font-size-sm;
     padding: var.$spc-sm 0;
   }
 }
