@@ -15,10 +15,26 @@
   padding-bottom: var.$spc-sm;
 
   h2 {
+    padding: var.$spc-sm 0;
+  }
+
+  input,
+  h2 {
     font-weight: var.$font-weight-bold;
     font-size: var.$font-size-lg;
     margin-bottom: var.$spc-sm;
-    padding: var.$spc-sm 0;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid var.$neutral200;
+    border-radius: var.$spc-sm;
+    padding: var.$spc-sm;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
   }
 
   &--row {
@@ -62,38 +78,83 @@
 }
 
 .Call__block {
-  padding: var.$spc-xl var.$spc-md;
+  padding: var.$spc-lg var.$spc-md;
   border-top: 1px solid var.$secondary500;
 }
 
 .Call__row {
-  margin-bottom: var.$spc-xl;
+  margin-bottom: var.$spc-lg;
 
   &:last-child {
     margin: 0;
   }
 }
 
-.Call__transcription,
 .Call__summary,
+.Call__dossier,
+.Call__transcription,
 .Call__cell {
-
   span {
     display: block;
     color: var.$secondary500;
     font-size: var.$font-size-sm;
     font-weight: var.$font-weight-bold;
+    letter-spacing: 1px;
+  }
+
+  p,
+  input,
+  select {
+    font-size: var.$font-size-body;
+    line-height: var.$line-height-tight;
   }
 
   p {
+    padding: var.$spc-sm 0;
+    border: 1px solid transparent;
+  }
+
+  input {
+    padding: var.$spc-sm;
+  }
+
+  input,
+  select {
+    width: 75%;
+    border: 1px solid var.$neutral200;
+    border-radius: var.$spc-sm;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
+  }
+
+  select {
+    background-color: var.$neutral50;
+  }
+}
+
+.Call__cell,
+.Call__dossier {
+  select {
+    background-color: var.$neutral50;
     font-size: var.$font-size-body;
     line-height: var.$line-height-tight;
+    padding: var.$spc-sm;
+    width: 75%;
+    border: 1px solid var.$neutral200;
+    border-radius: var.$spc-sm;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
+
   }
 }
 
 .Call__summary {
-  margin-bottom: var.$spc-md;
-
   p {
     padding: var.$spc-sm 0;
   }

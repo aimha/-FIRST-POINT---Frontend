@@ -95,11 +95,14 @@ function Telefonate() {
               </Cell>
               <Cell class={styles['Table__cell--status']}>
                 <Switch>
-                  <Match when={call.status}>
+                  <Match when={call.pratiche_id.length === 1}>
                     Assegnata
                   </Match>
-                  <Match when={!call.status}>
+                  <Match when={call.pratiche_id.length < 1}>
                     Da assegnare
+                  </Match>
+                  <Match when={call.pratiche_id.length > 1}>
+                    Ambigua
                   </Match>
                 </Switch>
               </Cell>
