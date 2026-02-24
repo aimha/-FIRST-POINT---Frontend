@@ -23,6 +23,11 @@ function CallDetail(props) {
     setFormData({ ...formData(), [name]: value });
   };
 
+  const onSaveInternal = () => {
+    props.onSave(props.data.id);
+    setIsEditing(false);
+  };
+  
   return (
     <>
       <div class={styles.Call__heading}>
@@ -163,28 +168,48 @@ function CallDetail(props) {
       </Switch >
 
       <div class={styles.ModalActions}>
-        <FormButton
-          title="Annulla"
-          type="button"
-          icon="close"
-          variant="Cancel"
-          onClick={props.onClose}>
-        </FormButton>
-        <FormButton
-          title="Archivia"
-          type="button"
-          icon="delete"
-          variant="Delete">
-        </FormButton>
-        <FormButton
-          title="Modifica"
-          type="button"
-          icon="edit"
-          variant="Submit"
-          onClick={() => setIsEditing(true)}>
-        </FormButton>
-      </div>
+        <Switch>
+          <Match when={!isEditing()}>
+            <FormButton
+              title="Annulla"
+              type="button"
+              icon="close"
+              variant="Cancel"
+              onClick={props.onClose}>
+            </FormButton>
+            <FormButton
+              title="Archivia"
+              type="button"
+              icon="delete"
+              variant="Delete">
+            </FormButton>
+            <FormButton
+              title="Modifica"
+              type="button"
+              icon="edit"
+              variant="Submit"
+              onClick={() => setIsEditing(true)}>
+            </FormButton>
+          </Match>
+          <Match when={isEditing()}>
+            <FormButton
+              title="Annulla"
+              type="button"
+              icon="close"
+              variant="Cancel"
+              onClick={() => setIsEditing(false)}>
+            </FormButton>
+            <FormButton
+              title="Salva Modifiche"
+              type="button"
+              icon="edit"
+              variant="Submit"
+              onClick={onSaveInternal}>
+            </FormButton>
 
+          </Match>
+        </Switch>
+      </div>
     </>
   );
 }

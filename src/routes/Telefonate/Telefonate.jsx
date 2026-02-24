@@ -53,6 +53,11 @@ function Telefonate() {
     setShowModal(true);
   }
 
+  const handleSave = (id) => {
+    console.log(`%c ID: ${id} - MODIFICATO`);
+    showToast("Modifiche salvate con successo");
+  };
+
   return (
     <div ref={root} class={`${styles.Container}`}>
       <PageHeader title="Telefonate">
@@ -130,6 +135,7 @@ function Telefonate() {
         <CallDetail
           data={selectedCall()}
           onClose={() => setShowModal(false)}
+          onSave={(id) => handleSave(id)}
         />
       </Modal>
     </div>
