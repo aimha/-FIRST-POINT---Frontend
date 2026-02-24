@@ -24,6 +24,7 @@
   border-radius: var.$spc-sm;
   width: 100%;
   max-width: 50vw;
+  height: 75vh;
   box-shadow: 0 10px 25px color.change(var.$neutral900, $alpha: .33);
 
   animation: modalAppear 0.3s var.$bezier-celebratoryEaseOut;

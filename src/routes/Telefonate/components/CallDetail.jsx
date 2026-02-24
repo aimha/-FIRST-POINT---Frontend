@@ -1,4 +1,4 @@
-import { createSignal, Switch } from "solid-js";
+import { createSignal, Match, Switch } from "solid-js";
 
 // import utility functions
 import { durationFormatter } from '../../../lib/formatters';
@@ -11,6 +11,7 @@ import styles from './CallDetails.module.scss';
 
 function CallDetail(props) {
   const [showTranscript, setShowTranscript] = createSignal(false);
+  const [isEditing, setIsEditing] = createSignal(false);
 
   return (
     <>
@@ -19,70 +20,75 @@ function CallDetail(props) {
       </div>
 
       <ul class={styles.Tabs}>
-        <li class={!showTranscript() ? styles['Tab--active'] : '' } onclick={() => setShowTranscript(false)}>Dettagli</li>
-        <li class={showTranscript() ? styles['Tab--active'] : '' } onclick={() => setShowTranscript(true)}>Trascrizione</li>
+        <li class={!showTranscript() ? styles['Tab--active'] : ''} onClick={() => setShowTranscript(false)}>Dettagli</li>
+        <li class={showTranscript() ? styles['Tab--active'] : ''} onClick={() => setShowTranscript(true)}>Trascrizione</li>
       </ul>
 
       <Switch>
         <Match when={!showTranscript()}>
-          <div class={styles.Call__row}>
-            <div class={styles.Call__cell}>
-              <span>Data / Ora</span>
-              <p>{props.data.started_at}</p>
+          <div class={styles.Call__block}>
+            <div class={styles.Call__row}>
+              <div class={styles.Call__cell}>
+                <span>Data / Ora</span>
+                <p>{props.data.started_at}</p>
+              </div>
+              <div class={styles.Call__cell}>
+                <span>Effettuata da</span>
+                <p>{props.data.from_number}</p>
+              </div>
+              <div class={styles.Call__cell}>
+                <span>Ricevuta da</span>
+                <p>{props.data.to_number}</p>
+              </div>
             </div>
-            <div class={styles.Call__cell}>
-              <span>Effettuata da</span>
-              <p>{props.data.from_number}</p>
-            </div>
-            <div class={styles.Call__cell}>
-              <span>Ricevuta da</span>
-              <p>{props.data.to_number}</p>
+
+            <div class={styles.Call__row}>
+              <div class={styles.Call__cell}>
+                <span>Durata</span>
+                <p>{durationFormatter(props.data.durata_secondi)}</p>
+              </div>
+              <div class={styles.Call__cell}>
+                <span>Status</span>
+                <Switch>
+                  <Match when={props.data.status}>
+                    <p>Assegnata</p>
+                  </Match>
+                  <Match when={!props.data.status}>
+                    <p>Da assegnare</p>
+                  </Match>
+                </Switch>
+              </div>
+              <div class={styles.Call__cell}>
+                <span>Fatturabile</span>
+                <Switch>
+                  <Match when={props.data.billable}>
+                    <p>Fatturabile</p>
+                  </Match>
+                  <Match when={!props.data.billable}>
+                    <p>Non Fatturabile</p>
+                  </Match>
+                </Switch>
+              </div>
             </div>
           </div>
 
-          <div class={styles.Call__row}>
-            <div class={styles.Call__cell}>
-              <span>Durata</span>
-              <p>{durationFormatter(props.data.durata_secondi)}</p>
+          <div class={styles.Call__block}>
+            <div class={styles.Call__summary}>
+              <span>Riassunto Telefonata</span>
+              <p>{props.data.riassunto}</p>
             </div>
-            <div class={styles.Call__cell}>
-              <span>Status</span>
-              <Switch>
-                <Match when={props.data.status}>
-                  <p>Assegnata</p>
-                </Match>
-                <Match when={!props.data.status}>
-                  <p>Da assegnare</p>
-                </Match>
-              </Switch>
-            </div>
-            <div class={styles.Call__cell}>
-              <span>Fatturabile</span>
-              <Switch>
-                <Match when={props.data.billable}>
-                  <p>Fatturabile</p>
-                </Match>
-                <Match when={!props.data.billable}>
-                  <p>Non Fatturabile</p>
-                </Match>
-              </Switch>
-            </div>
-          </div>
-
-          <div class={styles.Call__summary}>
-            <span>Riassunto Telefonata</span>
-            <p>{props.data.riassunto}</p>
           </div>
         </Match>
 
         <Match when={showTranscript()}>
-          <div class={styles.Call__transcription}>
-            <span>Trascrizione completa</span>
-            <p>{props.data.trascrizione}</p>
+          <div class={styles.Call__block}>
+            <div class={styles.Call__transcription}>
+              <span>Trascrizione completa</span>
+              <p>{props.data.trascrizione}</p>
+            </div>
           </div>
         </Match>
-      </Switch>
-
+      </Switch >
 
       <div class={styles.ModalActions}>
         <FormButton
@@ -93,18 +99,20 @@ function CallDetail(props) {
           onClick={props.onClose}>
         </FormButton>
         <FormButton
-          title="Archivia Chiamata"
+          title="Archivia"
           type="button"
           icon="delete"
           variant="Delete">
         </FormButton>
         <FormButton
-          title="Assegna Chiamata"
+          title="Modifica"
           type="button"
           icon="edit"
-          variant="Submit">
+          variant="Submit"
+          onClick={() => setIsEditing(true)}>
         </FormButton>
       </div>
+
     </>
   );
 }

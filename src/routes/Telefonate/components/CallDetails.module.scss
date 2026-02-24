@@ -30,7 +30,6 @@
 .Tabs {
   display: flex;
   gap: var.$spc-xs;
-  border-bottom: 1px solid var.$secondary500;
 
   li {
     font-size: var.$font-size-sm;
@@ -62,18 +61,22 @@
   }
 }
 
-.Tabs,
+.Call__block {
+  padding: var.$spc-xl var.$spc-md;
+  border-top: 1px solid var.$secondary500;
+}
+
 .Call__row {
   margin-bottom: var.$spc-xl;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 .Call__transcription,
 .Call__summary,
 .Call__cell {
-  span,
-  p {
-    padding: 0 var.$spc-sm;
-  }
 
   span {
     display: block;
@@ -90,8 +93,6 @@
 
 .Call__summary {
   margin-bottom: var.$spc-md;
-  padding: var.$spc-lg 0;
-  border-top: 1px solid var.$secondary500;
 
   p {
     padding: var.$spc-sm 0;
@@ -113,6 +114,9 @@
 }
 
 .ModalActions {
+  position: absolute;
+  bottom: var.$spc-xl;
+  right: var.$spc-xl;
   display: flex;
   align-items: center;
   justify-content: right;

@@ -6,17 +6,25 @@
 // COMPONENT STYLES
 
 .Table__cell {
-    &--name {
-      font-weight: var.$font-weight-bold;
-      letter-spacing: .0125rem;
-    }
+  &--name {
+    font-weight: var.$font-weight-bold;
+    letter-spacing: .0125rem;
+  }
 
-    &--phone {
-      span {
-        color: var.$success500;
-      }
+  &--company,
+  &--email,
+  &--phone,
+  &--dossier,
+  &--dossier {
+    font-size: var.$font-size-sm;
+  }
+
+  &--phone {
+    span {
+      color: var.$success500;
     }
   }
+}
 
 .ModalActions {
   display: flex;
@@ -24,4 +32,3 @@
   gap: var.$spc-sm;
   margin-top: var.$spc-lg;
 }
-

@@ -10,4 +10,10 @@
   &--intern {
     font-weight: var.$font-weight-bold;
   }
+
+  &--email,
+  &--role,
+  &--intern {
+    font-size: var.$font-size-sm;
+  }
 }
