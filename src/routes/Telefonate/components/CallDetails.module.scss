@@ -30,8 +30,7 @@
 .Tabs {
   display: flex;
   gap: var.$spc-xs;
-  border-bottom: 1px solid var.$neutral200;
-  margin-bottom: var.$spc-xl;
+  border-bottom: 1px solid var.$secondary500;
 
   li {
     font-size: var.$font-size-sm;
@@ -54,6 +53,7 @@
   .Tab--active {
     color: var.$neutral50;
     background-color: var.$secondary500;
+    border-color: 1px solid var.$secondary500;
 
     &:hover {
       background-color: var.$secondary500;
@@ -62,33 +62,36 @@
   }
 }
 
-
+.Tabs,
 .Call__row {
-  padding-bottom: var.$spc-lg;
+  margin-bottom: var.$spc-xl;
 }
 
 .Call__transcription,
 .Call__summary,
 .Call__cell {
+  span,
+  p {
+    padding: 0 var.$spc-sm;
+  }
+
   span {
     display: block;
     color: var.$secondary500;
     font-size: var.$font-size-sm;
     font-weight: var.$font-weight-bold;
-    letter-spacing: 1px;
   }
 
   p {
     font-size: var.$font-size-body;
     line-height: var.$line-height-tight;
-    padding: var.$spc-sm;
   }
 }
 
 .Call__summary {
   margin-bottom: var.$spc-md;
   padding: var.$spc-lg 0;
-  border-top: 1px solid var.$neutral200;
+  border-top: 1px solid var.$secondary500;
 
   p {
     padding: var.$spc-sm 0;

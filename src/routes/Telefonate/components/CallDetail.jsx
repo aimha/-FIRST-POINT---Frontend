@@ -17,14 +17,12 @@ function CallDetail(props) {
       <div class={styles.Call__heading}>
         <h2>{props.data.oggetto}</h2>
       </div>
-      <div>
 
       <ul class={styles.Tabs}>
         <li class={!showTranscript() ? styles['Tab--active'] : '' } onclick={() => setShowTranscript(false)}>Dettagli</li>
         <li class={showTranscript() ? styles['Tab--active'] : '' } onclick={() => setShowTranscript(true)}>Trascrizione</li>
       </ul>
 
-      </div>
       <Switch>
         <Match when={!showTranscript()}>
           <div class={styles.Call__row}>
