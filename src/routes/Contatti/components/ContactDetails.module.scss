@@ -12,16 +12,13 @@
 }
 
 .Contact__heading {
-  border-bottom: 1px solid var.$secondary500;
   padding-bottom: var.$spc-sm;
-  margin-bottom: var.$spc-lg;
 
   input,
   h2 {
     font-weight: var.$font-weight-bold;
     font-size: var.$font-size-lg;
     margin-bottom: var.$spc-sm;
-    padding: var.$spc-sm;
   }
 
   &--row {
@@ -32,6 +29,7 @@
       width: 90%;
       border: 1px solid var.$neutral200;
       border-radius: var.$spc-sm;
+      padding: var.$spc-sm;
 
       &:focus {
         outline: none;
@@ -41,56 +39,67 @@
   }
 }
 
+.Contact__block {
+  padding: var.$spc-lg var.$spc-md;
+  border-top: 1px solid var.$secondary500;
+}
+
 .Contact__row {
-  padding-bottom: var.$spc-lg;
+  margin-bottom: var.$spc-lg;
 
-  .Contact__cell {
-    span {
-      display: block;
-      color: var.$secondary500;
-      font-size: var.$font-size-sm;
-      font-weight: var.$font-weight-bold;
-      letter-spacing: 1px;
-    }
+  &:last-child {
+    margin: 0;
+  }
+}
 
-    p,
-    input {
-      font-size: var.$font-size-body;
-      line-height: var.$line-height-tight;
-      padding: var.$spc-sm;
-    }
-
-    p {
-      border: 1px solid transparent;
-    }
-
-    input {
-      border: 1px solid var.$neutral200;
-      border-radius: var.$spc-sm;
-
-      &:focus {
-        outline: none;
-        border-color: var.$secondary500;
-      }
-    }
+.Contact__cell {
+  span {
+    display: block;
+    color: var.$secondary500;
+    font-size: var.$font-size-sm;
+    font-weight: var.$font-weight-bold;
   }
 
-  &--last {
-    .Contact__cell {
-      grid-column: span 4;
+  p,
+  input {
+    font-size: var.$font-size-body;
+    line-height: var.$line-height-tight;
+  }
 
-      textarea {
-        width: 100%;
-      }
+  p {
+    padding-top: var.$spc-xs;
+    border: 1px solid transparent;
+  }
 
+  input {
+    padding: var.$spc-sm;
+    width: 75%;
+    border: 1px solid var.$neutral200;
+    border-radius: var.$spc-sm;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
+  }
+}
+
+.Contact__notes {
+  .Contact__cell {
+    grid-column: span 4;
+
+    textarea {
+      width: 100%;
     }
   }
 }
 
 .ModalActions {
+  position: absolute;
+  bottom: var.$spc-md;
+  right: var.$spc-lg;
   display: flex;
   align-items: center;
   justify-content: right;
   gap: var.$spc-md;
-  margin-top: var.$spc-sm;
 }
