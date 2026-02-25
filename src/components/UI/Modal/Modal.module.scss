@@ -32,12 +32,12 @@
 
 .ModalHeader {
   position: relative;
-  padding: var.$spc-lg;
+  padding: var.$spc-md var.$spc-lg;
   background-color: var.$secondary500;
   border-radius: var.$spc-sm var.$spc-sm 0 0;
 
   h2 {
-    font-size: var.$font-size-2xl;
+    font-size: var.$font-size-lg;
     font-weight: var.$font-weight-bold;
     color: var.$neutral50;
   }
@@ -73,6 +73,7 @@
 
 .ModalBody {
   padding: var.$spc-xl;
+  padding-bottom: var.$spc-5xl;
   background-color: var.$neutral50;
   border-radius: 0 0 var.$spc-sm var.$spc-sm;
 }

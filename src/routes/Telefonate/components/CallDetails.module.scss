@@ -66,6 +66,7 @@
   }
 
   .Tab--active {
+    font-weight: var.$font-weight-bold;
     color: var.$neutral50;
     background-color: var.$secondary500;
     border-color: 1px solid var.$secondary500;
@@ -99,7 +100,6 @@
     color: var.$secondary500;
     font-size: var.$font-size-sm;
     font-weight: var.$font-weight-bold;
-    letter-spacing: 1px;
   }
 
   p,
@@ -110,7 +110,7 @@
   }
 
   p {
-    padding: var.$spc-sm 0;
+    padding-top: var.$spc-xs;
     border: 1px solid transparent;
   }
 
@@ -150,18 +150,17 @@
       outline: none;
       border-color: var.$secondary500;
     }
-
   }
 }
 
 .Call__summary {
   p {
-    padding: var.$spc-sm 0;
+    padding: var.$spc-xs 0;
   }
 }
 
 .Call__transcription {
-  padding: var.$spc-sm 0;
+  padding: var.$spc-xs 0;
   margin-bottom: var.$spc-xl;
 
   button {
@@ -176,11 +175,10 @@
 
 .ModalActions {
   position: absolute;
-  bottom: var.$spc-xl;
-  right: var.$spc-xl;
+  bottom: var.$spc-md;
+  right: var.$spc-lg;
   display: flex;
   align-items: center;
   justify-content: right;
   gap: var.$spc-md;
-  margin-top: var.$spc-sm;
 }
