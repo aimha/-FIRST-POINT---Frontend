@@ -13,6 +13,9 @@ function ContactDetail(props) {
   // pass props to editing form
   const [formData, setFormData] = createSignal({ ...props.data });
 
+  // eventual secondary page for details
+  const [showSecondary, setShowSecondary] = createSignal(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData(), [name]: value });
@@ -38,6 +41,10 @@ function ContactDetail(props) {
           </Match>
         </Switch>
       </div>
+
+      <ul class={styles.Tabs}>
+        <li class={!showSecondary() ? styles['Tab--active'] : ''} onClick={() => setShowSecondary(false)}>Dettagli</li>
+      </ul>
 
       <div class={styles.Contact__block}>
         <div class={styles.Contact__row}>

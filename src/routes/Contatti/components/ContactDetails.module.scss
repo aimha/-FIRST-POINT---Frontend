@@ -39,6 +39,41 @@
   }
 }
 
+.Tabs {
+  display: flex;
+  gap: var.$spc-xs;
+
+  li {
+    font-size: var.$font-size-sm;
+    line-height: var.$line-height-normal;
+    background-color: var.$neutral50;
+    padding: var.$spc-xs var.$spc-md;
+    border: 1px solid var.$neutral200;
+    border-bottom: none;
+    border-radius: var.$spc-xs var.$spc-xs 0 0;
+    cursor: pointer;
+
+    transition: all 0.2s var.$bezier-productiveEaseOut;
+
+    &:hover {
+      background-color: var.$secondary50;
+      color: var.$secondary500;
+    }
+  }
+
+  .Tab--active {
+    font-weight: var.$font-weight-bold;
+    color: var.$neutral50;
+    background-color: var.$secondary500;
+    border-color: 1px solid var.$secondary500;
+
+    &:hover {
+      background-color: var.$secondary500;
+      color: var.$secondary50;
+    }
+  }
+}
+
 .Contact__block {
   padding: var.$spc-lg var.$spc-md;
   border-top: 1px solid var.$secondary500;

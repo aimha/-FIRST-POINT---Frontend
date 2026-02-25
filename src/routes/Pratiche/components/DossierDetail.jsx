@@ -12,6 +12,9 @@ function DossierDetail(props) {
 
   // pass props to editing form
   const [formData, setFormData] = createSignal({ ...props.data });
+  
+  // eventual secondary page for details
+  const [showSecondary, setShowSecondary] = createSignal(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +38,10 @@ function DossierDetail(props) {
           </Match>
         </Switch>
       </div>
+
+      <ul class={styles.Tabs}>
+        <li class={!showSecondary() ? styles['Tab--active'] : ''} onClick={() => setShowSecondary(false)}>Dettagli</li>
+      </ul>
 
       <div class={styles.Dossier__block}>
         <div class={styles.Dossier__row}>
