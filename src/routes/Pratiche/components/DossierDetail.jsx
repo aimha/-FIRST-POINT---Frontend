@@ -36,67 +36,71 @@ function DossierDetail(props) {
         </Switch>
       </div>
 
-      <div class={styles.Dossier__row}>
-        <div class={styles.Dossier__cell}>
-          <span>Data apertura</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.data_apertura || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <input type="date" name="data_apertura" value={formData().data_apertura} onInput={handleInputChange} />
-            </Match>
-          </Switch>
-        </div>
-        <div class={styles.Dossier__cell}>
-          <span>data chiusura</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.data_chiusura || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <input type="date" name="data_chiusura" value={formData().data_chiusura} onInput={handleInputChange} />
-            </Match>
-          </Switch>
-        </div>
-        <div class={styles.Dossier__cell}>
-          <span>Stato</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.stato || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <select
-                name="stato"
-                value={formData().stato}
-                onChange={handleInputChange} // Usa onChange per le select
-                class={styles.SelectCustom}
-              >
-                <option value="attiva">Attiva</option>
-                <option value="chiusa">Chiusa</option>
-              </select>
-            </Match>
-          </Switch>
+      <div class={styles.Dossier__block}>
+        <div class={styles.Dossier__row}>
+          <div class={styles.Dossier__cell}>
+            <span>Data apertura</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.data_apertura || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <input type="date" name="data_apertura" value={formData().data_apertura} onInput={handleInputChange} />
+              </Match>
+            </Switch>
+          </div>
+          <div class={styles.Dossier__cell}>
+            <span>data chiusura</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.data_chiusura || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <input type="date" name="data_chiusura" value={formData().data_chiusura} onInput={handleInputChange} />
+              </Match>
+            </Switch>
+          </div>
+          <div class={styles.Dossier__cell}>
+            <span>Stato</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.stato || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <select
+                  name="stato"
+                  value={formData().stato}
+                  onChange={handleInputChange} // Usa onChange per le select
+                  class={styles.SelectCustom}
+                >
+                  <option value="attiva">Attiva</option>
+                  <option value="chiusa">Chiusa</option>
+                </select>
+              </Match>
+            </Switch>
+          </div>
         </div>
       </div>
 
-      <div class={`${styles.Dossier__row} ${styles['Dossier__row--last']}`}>
-        <div class={styles.Dossier__cell}>
-          <span>Descrizione</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.descrizione || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <textarea
-                name="descrizione"
-                value={formData().descrizione}
-                onInput={handleInputChange}
-                rows="3"
-                class={styles.TextareaCustom} // Usa una classe specifica per gestire il resize e il font
-              />
-            </Match>
-          </Switch>
+      <div class={styles.Dossier__block}>
+        <div class={`${styles.Dossier__row} ${styles.Dossier__notes}`}>
+          <div class={styles.Dossier__cell}>
+            <span>Descrizione</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.descrizione || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <textarea
+                  name="descrizione"
+                  value={formData().descrizione}
+                  onInput={handleInputChange}
+                  rows="3"
+                  class={styles.TextareaCustom} // Usa una classe specifica per gestire il resize e il font
+                />
+              </Match>
+            </Switch>
+          </div>
         </div>
       </div>
 
