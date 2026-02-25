@@ -23,7 +23,7 @@ function Sidebar() {
   return (
     <aside class={styles.Sidebar}>
       <div class={styles.Sidebar__header}>
-        <img src="/logo.svg" alt="First Point" class={styles.Sidebar__logo} />
+        <img src="/Logo_FirstPoint.png" alt="First Point" class={styles.Sidebar__logo} />
       </div>
 
       <nav class={styles.Sidebar__nav}>
