@@ -39,40 +39,41 @@ function OperatorDetail(props) {
         </Switch>
       </div>
 
-
-      <div class={styles.Operator__row}>
-        <div class={styles.Operator__cell}>
-          <span>Email</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.email || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <input type="text" name="email" value={formData().email} onInput={handleInputChange} />
-            </Match>
-          </Switch>
-        </div>
-        <div class={styles.Operator__cell}>
-          <span>Ruolo</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.ruolo || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <input type="text" name="ruolo" value={formData().ruolo} onInput={handleInputChange} />
-            </Match>
-          </Switch>
-        </div>
-        <div class={styles.Operator__cell}>
-          <span>Interno</span>
-          <Switch>
-            <Match when={!isEditing()}>
-              <p>{props.data.interno || "---"}</p>
-            </Match>
-            <Match when={isEditing()}>
-              <input type="text" name="interno" value={formData().interno} onInput={handleInputChange} />
-            </Match>
-          </Switch>
+      <div class={styles.Operator__block}>
+        <div class={styles.Operator__row}>
+          <div class={styles.Operator__cell}>
+            <span>Email</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.email || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <input type="text" name="email" value={formData().email} onInput={handleInputChange} />
+              </Match>
+            </Switch>
+          </div>
+          <div class={styles.Operator__cell}>
+            <span>Ruolo</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.ruolo || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <input type="text" name="ruolo" value={formData().ruolo} onInput={handleInputChange} />
+              </Match>
+            </Switch>
+          </div>
+          <div class={styles.Operator__cell}>
+            <span>Interno</span>
+            <Switch>
+              <Match when={!isEditing()}>
+                <p>{props.data.interno || "---"}</p>
+              </Match>
+              <Match when={isEditing()}>
+                <input type="text" name="interno" value={formData().interno} onInput={handleInputChange} />
+              </Match>
+            </Switch>
+          </div>
         </div>
       </div>
 

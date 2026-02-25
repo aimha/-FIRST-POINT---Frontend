@@ -16,7 +16,6 @@
 
   h2 {
     padding: var.$spc-sm 0;
-    ;
   }
 
   input,
@@ -42,7 +41,6 @@
     display: grid;
     grid-template-columns: 100%;
   }
-
 }
 
 .Dossier__block {
@@ -74,7 +72,7 @@
   }
 
   p {
-    padding-top: var.$spc-sm;
+    padding-top: var.$spc-xs;
     border: 1px solid transparent;
   }
 

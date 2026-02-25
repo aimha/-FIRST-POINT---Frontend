@@ -12,35 +12,41 @@
 }
 
 .Operator__heading {
-  border-bottom: 1px solid var.$secondary500;
   padding-bottom: var.$spc-sm;
-  margin-bottom: var.$spc-lg;
 
+  h2 {
+    padding: var.$spc-sm 0;
+  }
+  
   input,
   h2 {
     font-weight: var.$font-weight-bold;
     font-size: var.$font-size-lg;
     margin-bottom: var.$spc-sm;
+  }
+
+  input {
+    width: 90%;
+    border: 1px solid var.$neutral200;
+    border-radius: var.$spc-sm;
     padding: var.$spc-sm;
+
+    &:focus {
+      outline: none;
+      border-color: var.$secondary500;
+    }
   }
 
   &--row {
     display: grid;
     grid-template-columns: 50% 50%;
-
-    input {
-      width: 90%;
-      border: 1px solid var.$neutral200;
-      border-radius: var.$spc-sm;
-
-      &:focus {
-        outline: none;
-        border-color: var.$secondary500;
-      }
-    }
   }
 }
 
+.Operator__block {
+  padding: var.$spc-lg var.$spc_md;
+  border-top: 1px solid var.$secondary500;
+}
 
 .Operator__row {
   padding-bottom: var.$spc-lg;
@@ -51,21 +57,23 @@
       color: var.$secondary500;
       font-size: var.$font-size-sm;
       font-weight: var.$font-weight-bold;
-      letter-spacing: 1px;
     }
 
     p,
     input {
       font-size: var.$font-size-body;
       line-height: var.$line-height-tight;
-      padding: var.$spc-sm;
     }
 
     p {
+      padding-top: var.$spc-xs;
       border: 1px solid transparent;
     }
 
     input {
+      background-color: var.$neutral50;
+      padding: var.$spc-sm;
+      width: 75%;
       border: 1px solid var.$neutral200;
       border-radius: var.$spc-sm;
 
@@ -75,20 +83,12 @@
       }
     }
   }
-
-  &--last {
-    .Contact__cell {
-      grid-column: span 4;
-
-      textarea {
-        width: 100%;
-      }
-
-    }
-  }
 }
 
 .ModalActions {
+  position: absolute;
+  bottom: var.$spc-md;
+  right: var.$spc-lg;
   display: flex;
   align-items: center;
   justify-content: right;
