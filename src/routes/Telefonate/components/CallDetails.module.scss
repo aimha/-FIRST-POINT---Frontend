@@ -114,33 +114,9 @@
     border: 1px solid transparent;
   }
 
-  input {
-    padding: var.$spc-sm;
-  }
-
   input,
   select {
-    width: 75%;
-    border: 1px solid var.$neutral200;
-    border-radius: var.$spc-sm;
-
-    &:focus {
-      outline: none;
-      border-color: var.$secondary500;
-    }
-  }
-
-  select {
     background-color: var.$neutral50;
-  }
-}
-
-.Call__cell,
-.Call__dossier {
-  select {
-    background-color: var.$neutral50;
-    font-size: var.$font-size-body;
-    line-height: var.$line-height-tight;
     padding: var.$spc-sm;
     width: 75%;
     border: 1px solid var.$neutral200;
