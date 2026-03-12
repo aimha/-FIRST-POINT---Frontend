@@ -9,6 +9,9 @@
   display: flex;
   flex-direction: column;
   gap: var.$spc-md;
+  padding: var.$spc-sm;
+  overflow-y: scroll;
+  max-height: 32rem;
 }
 
 .ModalRow {
@@ -18,6 +21,9 @@
 }
 
 .ModalActions {
+  position: absolute;
+  bottom: var.$spc-md;
+  right: var.$spc-lg;
   display: flex;
   align-items: center;
   justify-content: right;

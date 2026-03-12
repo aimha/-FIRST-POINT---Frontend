@@ -79,8 +79,11 @@
 }
 
 .Dossier__block {
-  padding: var.$spc-lg var.$spc_md;
+  padding: var.$spc-lg var.$spc-md;
   border-top: 1px solid var.$secondary500;
+  padding: var.$spc-sm;
+  overflow-y: scroll;
+  max-height: 32rem;
 }
 
 .Dossier__row {
