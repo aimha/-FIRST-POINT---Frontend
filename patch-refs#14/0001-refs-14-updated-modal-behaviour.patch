@@ -1,0 +1,152 @@
+From 922bbfe49650a92f754c67e8972496857084f66d Mon Sep 17 00:00:00 2001
+From: Christian Boragine <christian.boragine@gmail.com>
+Date: Thu, 12 Mar 2026 10:25:08 +0100
+Subject: [PATCH] refs#14: updated modal behaviour
+
+---
+ src/routes/Contatti/components/AddContactForm.module.scss   | 6 ++++++
+ src/routes/Contatti/components/ContactDetails.module.scss   | 3 +++
+ src/routes/Operatori/components/AddOperatorForm.module.scss | 6 ++++++
+ src/routes/Operatori/components/OperatorDetail.module.scss  | 5 ++++-
+ src/routes/Pratiche/components/AddDossierForm.module.scss   | 6 ++++++
+ src/routes/Pratiche/components/DossierDetail.module.scss    | 5 ++++-
+ src/routes/Telefonate/components/CallDetails.module.scss    | 3 +++
+ 7 files changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/src/routes/Contatti/components/AddContactForm.module.scss b/src/routes/Contatti/components/AddContactForm.module.scss
+index 320e2d9..8ec7234 100644
+--- a/src/routes/Contatti/components/AddContactForm.module.scss
++++ b/src/routes/Contatti/components/AddContactForm.module.scss
+@@ -9,6 +9,9 @@
+   display: flex;
+   flex-direction: column;
+   gap: var.$spc-md;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .ModalRow {
+@@ -18,6 +21,9 @@
+ }
+ 
+ .ModalActions {
++  position: absolute;
++  bottom: var.$spc-md;
++  right: var.$spc-lg;
+   display: flex;
+   align-items: center;
+   justify-content: right;
+diff --git a/src/routes/Contatti/components/ContactDetails.module.scss b/src/routes/Contatti/components/ContactDetails.module.scss
+index e7a5da1..8226fb9 100644
+--- a/src/routes/Contatti/components/ContactDetails.module.scss
++++ b/src/routes/Contatti/components/ContactDetails.module.scss
+@@ -77,6 +77,9 @@
+ .Contact__block {
+   padding: var.$spc-lg var.$spc-md;
+   border-top: 1px solid var.$secondary500;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .Contact__row {
+diff --git a/src/routes/Operatori/components/AddOperatorForm.module.scss b/src/routes/Operatori/components/AddOperatorForm.module.scss
+index 320e2d9..8ec7234 100644
+--- a/src/routes/Operatori/components/AddOperatorForm.module.scss
++++ b/src/routes/Operatori/components/AddOperatorForm.module.scss
+@@ -9,6 +9,9 @@
+   display: flex;
+   flex-direction: column;
+   gap: var.$spc-md;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .ModalRow {
+@@ -18,6 +21,9 @@
+ }
+ 
+ .ModalActions {
++  position: absolute;
++  bottom: var.$spc-md;
++  right: var.$spc-lg;
+   display: flex;
+   align-items: center;
+   justify-content: right;
+diff --git a/src/routes/Operatori/components/OperatorDetail.module.scss b/src/routes/Operatori/components/OperatorDetail.module.scss
+index 1939dec..512c81b 100644
+--- a/src/routes/Operatori/components/OperatorDetail.module.scss
++++ b/src/routes/Operatori/components/OperatorDetail.module.scss
+@@ -79,8 +79,11 @@
+ }
+ 
+ .Operator__block {
+-  padding: var.$spc-lg var.$spc_md;
++  padding: var.$spc-lg var.$spc-md;
+   border-top: 1px solid var.$secondary500;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .Operator__row {
+diff --git a/src/routes/Pratiche/components/AddDossierForm.module.scss b/src/routes/Pratiche/components/AddDossierForm.module.scss
+index 320e2d9..8ec7234 100644
+--- a/src/routes/Pratiche/components/AddDossierForm.module.scss
++++ b/src/routes/Pratiche/components/AddDossierForm.module.scss
+@@ -9,6 +9,9 @@
+   display: flex;
+   flex-direction: column;
+   gap: var.$spc-md;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .ModalRow {
+@@ -18,6 +21,9 @@
+ }
+ 
+ .ModalActions {
++  position: absolute;
++  bottom: var.$spc-md;
++  right: var.$spc-lg;
+   display: flex;
+   align-items: center;
+   justify-content: right;
+diff --git a/src/routes/Pratiche/components/DossierDetail.module.scss b/src/routes/Pratiche/components/DossierDetail.module.scss
+index ade80bb..8487238 100644
+--- a/src/routes/Pratiche/components/DossierDetail.module.scss
++++ b/src/routes/Pratiche/components/DossierDetail.module.scss
+@@ -79,8 +79,11 @@
+ }
+ 
+ .Dossier__block {
+-  padding: var.$spc-lg var.$spc_md;
++  padding: var.$spc-lg var.$spc-md;
+   border-top: 1px solid var.$secondary500;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .Dossier__row {
+diff --git a/src/routes/Telefonate/components/CallDetails.module.scss b/src/routes/Telefonate/components/CallDetails.module.scss
+index 7edb120..f7061f9 100644
+--- a/src/routes/Telefonate/components/CallDetails.module.scss
++++ b/src/routes/Telefonate/components/CallDetails.module.scss
+@@ -81,6 +81,9 @@
+ .Call__block {
+   padding: var.$spc-lg var.$spc-md;
+   border-top: 1px solid var.$secondary500;
++  padding: var.$spc-sm;
++  overflow-y: scroll;
++  max-height: 32rem;
+ }
+ 
+ .Call__row {
+-- 
+2.43.0
+
